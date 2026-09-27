@@ -1,0 +1,19 @@
+jobs.db
+config.env
+__pycache__/
+*.log
+infra/.terraform/
+infra/terraform.tfstate*
+infra/terraform.tfvars
+infra/build/
+infra/.terraform.lock.hcl
+infra/tfplan
+serve.log
+jobs.db.scan.lock
+jobs.db-wal
+jobs.db-shm
+# personal data / secrets (never commit)
+status.json
+open_jobs.json
+crontab.before-deploy
+jobs.db*

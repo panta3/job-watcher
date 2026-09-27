@@ -1,0 +1,5622 @@
+{
+ "_readme": "ats = greenhouse|lever|ashby|workday|smartrecruiters|amazon. id = the company's slug in that system (workday: tenant/wdN/site). Set \"enabled\": false to pause one.",
+ "companies": [
+  {
+   "name": "RBC",
+   "ats": "workday",
+   "id": "rbc/wd3/RBCGLOBAL1",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "TD",
+   "ats": "workday",
+   "id": "td/wd3/TD_Bank_Careers",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "CIBC",
+   "ats": "workday",
+   "id": "cibc/wd3/search",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "BMO",
+   "ats": "workday",
+   "id": "bmo/wd3/External",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Manulife",
+   "ats": "workday",
+   "id": "manulife/wd3/MFCJH_Jobs",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Sun Life",
+   "ats": "workday",
+   "id": "sunlife/wd3/Experienced-Jobs",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Desjardins",
+   "ats": "workday",
+   "id": "desjardins/wd10/Desjardins",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "CAE",
+   "ats": "workday",
+   "id": "cae/wd3/Career",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Thomson Reuters",
+   "ats": "workday",
+   "id": "thomsonreuters/wd5/External_Career_Site",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Mitel",
+   "ats": "workday",
+   "id": "mitel/wd3/Mitelcareers",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Magna",
+   "ats": "workday",
+   "id": "magna/wd3/Magna",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Enbridge",
+   "ats": "workday",
+   "id": "enbridge/wd3/Enbridge_Careers",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Wealthsimple",
+   "ats": "ashby",
+   "id": "wealthsimple",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Cohere",
+   "ats": "ashby",
+   "id": "cohere",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "1Password",
+   "ats": "ashby",
+   "id": "1password",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "KOHO",
+   "ats": "ashby",
+   "id": "koho",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Neo Financial",
+   "ats": "ashby",
+   "id": "neofinancial",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Jobber",
+   "ats": "ashby",
+   "id": "jobber",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Clearco",
+   "ats": "ashby",
+   "id": "clearco",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Docebo",
+   "ats": "ashby",
+   "id": "docebo",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Float",
+   "ats": "ashby",
+   "id": "float",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Jane App",
+   "ats": "ashby",
+   "id": "jane",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Trulioo",
+   "ats": "ashby",
+   "id": "trulioo",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Procurify",
+   "ats": "ashby",
+   "id": "procurify",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Relay Financial",
+   "ats": "ashby",
+   "id": "relay",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Maple",
+   "ats": "ashby",
+   "id": "maple",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Hopper",
+   "ats": "ashby",
+   "id": "hopper",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Sanctuary AI",
+   "ats": "ashby",
+   "id": "sanctuary",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Lightspeed",
+   "ats": "ashby",
+   "id": "lightspeed",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Thinkific",
+   "ats": "ashby",
+   "id": "thinkific",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Geotab",
+   "ats": "greenhouse",
+   "id": "geotab",
+   "note": "Canadian HQ / big Canadian office"
+  },
+  {
+   "name": "Hootsuite",
+   "ats": "greenhouse",
+   "id": "hootsuite",
+   "note": "Canadian HQ / big Canadian office"
+  },
+  {
+   "name": "Flipp",
+   "ats": "greenhouse",
+   "id": "flipp",
+   "note": "Canadian HQ / big Canadian office"
+  },
+  {
+   "name": "Faire",
+   "ats": "greenhouse",
+   "id": "faire",
+   "note": "Canadian HQ / big Canadian office"
+  },
+  {
+   "name": "Later",
+   "ats": "greenhouse",
+   "id": "later",
+   "note": "Canadian HQ / big Canadian office"
+  },
+  {
+   "name": "Ritual",
+   "ats": "greenhouse",
+   "id": "ritual",
+   "note": "Canadian HQ / big Canadian office"
+  },
+  {
+   "name": "Tenstorrent",
+   "ats": "greenhouse",
+   "id": "tenstorrent",
+   "note": "Canadian HQ / big Canadian office"
+  },
+  {
+   "name": "PointClickCare",
+   "ats": "lever",
+   "id": "pointclickcare",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Waabi",
+   "ats": "lever",
+   "id": "waabi",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Wattpad",
+   "ats": "lever",
+   "id": "wattpad",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Mistplay",
+   "ats": "lever",
+   "id": "mistplay",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Kepler",
+   "ats": "lever",
+   "id": "kepler",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Deep Genomics",
+   "ats": "lever",
+   "id": "deepgenomics",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Wave",
+   "ats": "lever",
+   "id": "waveapps",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Ubisoft",
+   "ats": "smartrecruiters",
+   "id": "Ubisoft2",
+   "note": "Montreal/Toronto/Quebec studios"
+  },
+  {
+   "name": "Amazon",
+   "ats": "amazon",
+   "id": "canada",
+   "note": "Toronto/Vancouver"
+  },
+  {
+   "name": "NVIDIA",
+   "ats": "workday",
+   "id": "nvidia/wd5/NVIDIAExternalCareerSite",
+   "note": "Global, Canadian offices"
+  },
+  {
+   "name": "Salesforce",
+   "ats": "workday",
+   "id": "salesforce/wd12/External_Career_Site",
+   "note": "Global, Canadian offices"
+  },
+  {
+   "name": "Intel",
+   "ats": "workday",
+   "id": "intel/wd1/External",
+   "note": "Global, Canadian offices"
+  },
+  {
+   "name": "Adobe",
+   "ats": "workday",
+   "id": "adobe/wd5/external_experienced",
+   "note": "Global, Canadian offices"
+  },
+  {
+   "name": "Autodesk",
+   "ats": "workday",
+   "id": "autodesk/wd1/Ext",
+   "note": "Global, Canadian offices"
+  },
+  {
+   "name": "Ciena",
+   "ats": "workday",
+   "id": "ciena/wd5/Careers",
+   "note": "Global, Canadian offices"
+  },
+  {
+   "name": "Workday",
+   "ats": "workday",
+   "id": "workday/wd5/Workday",
+   "note": "Global, Canadian offices"
+  },
+  {
+   "name": "Capital One",
+   "ats": "workday",
+   "id": "capitalone/wd12/Capital_One",
+   "note": "Global, Canadian offices"
+  },
+  {
+   "name": "Mastercard",
+   "ats": "workday",
+   "id": "mastercard/wd1/CorporateCareers",
+   "note": "Global, Canadian offices"
+  },
+  {
+   "name": "PayPal",
+   "ats": "workday",
+   "id": "paypal/wd1/jobs",
+   "note": "Global, Canadian offices"
+  },
+  {
+   "name": "Cisco",
+   "ats": "workday",
+   "id": "cisco/wd5/Cisco_Careers",
+   "note": "Global, Canadian offices"
+  },
+  {
+   "name": "HP",
+   "ats": "workday",
+   "id": "hp/wd5/ExternalCareerSite",
+   "note": "Global, Canadian offices"
+  },
+  {
+   "name": "Broadcom",
+   "ats": "workday",
+   "id": "broadcom/wd1/External_Career",
+   "note": "Global, Canadian offices"
+  },
+  {
+   "name": "CrowdStrike",
+   "ats": "workday",
+   "id": "crowdstrike/wd5/crowdstrikecareers",
+   "note": "Global, Canadian offices"
+  },
+  {
+   "name": "Stripe",
+   "ats": "greenhouse",
+   "id": "stripe",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "Databricks",
+   "ats": "greenhouse",
+   "id": "databricks",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "Cloudflare",
+   "ats": "greenhouse",
+   "id": "cloudflare",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "Coinbase",
+   "ats": "greenhouse",
+   "id": "coinbase",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "Datadog",
+   "ats": "greenhouse",
+   "id": "datadog",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "MongoDB",
+   "ats": "greenhouse",
+   "id": "mongodb",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "GitLab",
+   "ats": "greenhouse",
+   "id": "gitlab",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "Affirm",
+   "ats": "greenhouse",
+   "id": "affirm",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "Brex",
+   "ats": "greenhouse",
+   "id": "brex",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "Samsara",
+   "ats": "greenhouse",
+   "id": "samsara",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "Okta",
+   "ats": "greenhouse",
+   "id": "okta",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "Elastic",
+   "ats": "greenhouse",
+   "id": "elastic",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "Instacart",
+   "ats": "greenhouse",
+   "id": "instacart",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "Lyft",
+   "ats": "greenhouse",
+   "id": "lyft",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "Reddit",
+   "ats": "greenhouse",
+   "id": "reddit",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "Pinterest",
+   "ats": "greenhouse",
+   "id": "pinterest",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "Dropbox",
+   "ats": "greenhouse",
+   "id": "dropbox",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "Twilio",
+   "ats": "greenhouse",
+   "id": "twilio",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "Block",
+   "ats": "greenhouse",
+   "id": "block",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "DoorDash",
+   "ats": "greenhouse",
+   "id": "doordashusa",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "Robinhood",
+   "ats": "greenhouse",
+   "id": "robinhood",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "Figma",
+   "ats": "greenhouse",
+   "id": "figma",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "Squarespace",
+   "ats": "greenhouse",
+   "id": "squarespace",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "Toast",
+   "ats": "greenhouse",
+   "id": "toast",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "Verkada",
+   "ats": "greenhouse",
+   "id": "verkada",
+   "note": "Global, Canadian offices or Canada-remote"
+  },
+  {
+   "name": "OpenAI",
+   "ats": "ashby",
+   "id": "openai",
+   "note": "Global"
+  },
+  {
+   "name": "Ramp",
+   "ats": "ashby",
+   "id": "ramp",
+   "note": "Global"
+  },
+  {
+   "name": "Notion",
+   "ats": "ashby",
+   "id": "notion",
+   "note": "Global"
+  },
+  {
+   "name": "Plaid",
+   "ats": "ashby",
+   "id": "plaid",
+   "note": "Global"
+  },
+  {
+   "name": "Snowflake",
+   "ats": "ashby",
+   "id": "snowflake",
+   "note": "Global"
+  },
+  {
+   "name": "Palantir",
+   "ats": "lever",
+   "id": "palantir",
+   "note": "Global"
+  },
+  {
+   "name": "Spotify",
+   "ats": "lever",
+   "id": "spotify",
+   "note": "Global"
+  },
+  {
+   "name": "AMD",
+   "ats": "jibe",
+   "id": "careers.amd.com",
+   "note": "Markham/Toronto"
+  },
+  {
+   "name": "Microsoft",
+   "ats": "eightfold",
+   "id": "apply.careers.microsoft.com|microsoft.com",
+   "note": "Vancouver/Toronto (hourly: rate-limits 15-min polling)",
+   "every_minutes": 60
+  },
+  {
+   "name": "Scotiabank",
+   "ats": "successfactors",
+   "id": "jobs.scotiabank.com",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Rogers",
+   "ats": "successfactors",
+   "id": "jobs.rogers.com",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "TELUS",
+   "ats": "successfactors",
+   "id": "careers.telus.com",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "BlackBerry",
+   "ats": "workday",
+   "id": "bb/wd3/BlackBerry",
+   "note": "Canadian HQ (Waterloo)"
+  },
+  {
+   "name": " impact.com ",
+   "ats": "greenhouse",
+   "id": "impact",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "10Beauty",
+   "ats": "greenhouse",
+   "id": "10beauty",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "2K",
+   "ats": "greenhouse",
+   "id": "2k",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "3PillarGlobal",
+   "ats": "lever",
+   "id": "3pillarglobal",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "4AG Robotics",
+   "ats": "rippling",
+   "id": "4ag",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "A Thinking Ape",
+   "ats": "greenhouse",
+   "id": "athinkingape",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Aalyria",
+   "ats": "rippling",
+   "id": "aalyria-careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "ABB",
+   "ats": "workday",
+   "id": "abb/wd3/external_career_page",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Abbott",
+   "ats": "workday",
+   "id": "abbott/wd5/abbottcareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "AbbVie",
+   "ats": "smartrecruiters",
+   "id": "AbbVie",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Acceldata",
+   "ats": "lever",
+   "id": "acceldata",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "ACCIONA",
+   "ats": "workday",
+   "id": "acciona/wd3/acciona_employment_channel",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Accor",
+   "ats": "smartrecruiters",
+   "id": "AccorCorpo",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Achievers",
+   "ats": "lever",
+   "id": "achievers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Acumatica",
+   "ats": "smartrecruiters",
+   "id": "Acumatica",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Ada",
+   "ats": "greenhouse",
+   "id": "ada18",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Adaption Labs",
+   "ats": "ashby",
+   "id": "adaption",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "ADGA Group Consultants",
+   "ats": "smartrecruiters",
+   "id": "ADGAGroupConsultantsInc1",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "AECOM",
+   "ats": "smartrecruiters",
+   "id": "AECOM2",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "AEG",
+   "ats": "greenhouse",
+   "id": "aegworldwide",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Aerones",
+   "ats": "workable",
+   "id": "aerones",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "AeroVect",
+   "ats": "ashby",
+   "id": "aerovect",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Agentis Capital",
+   "ats": "ashby",
+   "id": "agentis-capital-advisors",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Agilent Technologies",
+   "ats": "workday",
+   "id": "agilent/wd5/Agilent_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Agility PR Solutions",
+   "ats": "rippling",
+   "id": "agilitypr",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Agoda",
+   "ats": "greenhouse",
+   "id": "agoda",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "AgWest Farm Credit",
+   "ats": "greenhouse",
+   "id": "agwestfarmcredit",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Air Liquide",
+   "ats": "workday",
+   "id": "airliquidehr/wd3/AirLiquideExternalCareer",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Airbus",
+   "ats": "workday",
+   "id": "ag/wd3/Airbus",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Alarm.com",
+   "ats": "greenhouse",
+   "id": "alarmcom",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Alberta Blue Cross",
+   "ats": "workday",
+   "id": "abbluecross/wd3/careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Alberta Investment Management Corporation",
+   "ats": "workday",
+   "id": "aimco/wd10/AIMCoCareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Alcoa",
+   "ats": "workday",
+   "id": "alcoa/wd5/Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Alexion",
+   "ats": "workday",
+   "id": "astrazeneca/wd3/alexion",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Allegis Global Solutions",
+   "ats": "smartrecruiters",
+   "id": "AllegisGlobalSolutions",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Alloy Enterprises",
+   "ats": "ashby",
+   "id": "alloyenterprises",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Allstate Insurance Company",
+   "ats": "workday",
+   "id": "allstate/wd5/allstate_careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Alo Yoga",
+   "ats": "greenhouse",
+   "id": "aloyoga",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Alpha FMC",
+   "ats": "greenhouse",
+   "id": "alphafmcroles",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "AlphaSense",
+   "ats": "greenhouse",
+   "id": "alphasense",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Alta Ares",
+   "ats": "ashby",
+   "id": "alta-ares",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "AltaGas",
+   "ats": "workday",
+   "id": "wgl/wd5/altagas",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "AltaML",
+   "ats": "lever",
+   "id": "altaml",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Altasciences",
+   "ats": "workday",
+   "id": "altasciences/wd1/Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "ALTEN Technology",
+   "ats": "greenhouse",
+   "id": "altentechnologyusa",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Altera Corporation",
+   "ats": "workday",
+   "id": "altera/wd1/altera",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Amgen",
+   "ats": "workday",
+   "id": "amgen/wd1/careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "AMI",
+   "ats": "ashby",
+   "id": "ami",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Ample Insight",
+   "ats": "smartrecruiters",
+   "id": "AmpleInsightInc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Ampliwork, Inc",
+   "ats": "rippling",
+   "id": "ampliwork-inc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Analog Devices",
+   "ats": "workday",
+   "id": "analogdevices/wd1/External",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Analytic Partners",
+   "ats": "lever",
+   "id": "analyticpartners",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Anaplan",
+   "ats": "greenhouse",
+   "id": "anaplan",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Andersen Corporation",
+   "ats": "workday",
+   "id": "andersen/wd12/Andersen_External_Career_Site",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Anduril",
+   "ats": "greenhouse",
+   "id": "andurilindustries",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Anthropic",
+   "ats": "greenhouse",
+   "id": "anthropic",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Apera AI",
+   "ats": "greenhouse",
+   "id": "aperaaiinc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Apex Companies",
+   "ats": "greenhouse",
+   "id": "apexcompanies",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Appian",
+   "ats": "greenhouse",
+   "id": "appian",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "AppLovin",
+   "ats": "greenhouse",
+   "id": "applovin",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Aptiv",
+   "ats": "workday",
+   "id": "aptiv/wd5/aptiv_careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Arc'teryx Equipment",
+   "ats": "lever",
+   "id": "arcteryx.com",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Arctic Wolf",
+   "ats": "workday",
+   "id": "arcticwolf/wd1/External",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Arista Networks",
+   "ats": "smartrecruiters",
+   "id": "AristaNetworks",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Aritzia",
+   "ats": "workday",
+   "id": "aritzia/wd3/External",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Arlo Technologies",
+   "ats": "workday",
+   "id": "arlo/wd12/External_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Armstrong Fluid Technology",
+   "ats": "bamboohr",
+   "id": "armstrongfluidtechnology",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Arondite",
+   "ats": "workable",
+   "id": "arondite",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Artefact",
+   "ats": "greenhouse",
+   "id": "artefactlinkedin",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Arthur Grand Technologies",
+   "ats": "smartrecruiters",
+   "id": "ArthurGrandTechnologiesInc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Artificial.Agency",
+   "ats": "ashby",
+   "id": "artificial.agency",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Ashby",
+   "ats": "ashby",
+   "id": "ashby",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "ASM Global",
+   "ats": "workday",
+   "id": "asmglobal/wd1/careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Assent",
+   "ats": "smartrecruiters",
+   "id": "Assent",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "AssetWorks",
+   "ats": "workday",
+   "id": "volarisgroup/wd3/AssetWorks",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "ASSYSTEM",
+   "ats": "smartrecruiters",
+   "id": "ASSYSTEM",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Astera Labs",
+   "ats": "greenhouse",
+   "id": "asteralabs",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Astera Labs",
+   "ats": "greenhouse",
+   "id": "asteraearlycareer2026",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "AstraZeneca",
+   "ats": "workday",
+   "id": "astrazeneca/wd3/Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "AtkinsRéalis",
+   "ats": "workday",
+   "id": "slihrms/wd3/careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Atoms",
+   "ats": "greenhouse",
+   "id": "cssmerge",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Atria Group",
+   "ats": "smartrecruiters",
+   "id": "AtriaGroupLLC",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "AttoTude",
+   "ats": "greenhouse",
+   "id": "attotude",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Autodesk",
+   "ats": "workday",
+   "id": "autodesk/wd1/uni",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Avance Consulting",
+   "ats": "smartrecruiters",
+   "id": "AvanceConsultingServices2",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "AvePoint",
+   "ats": "greenhouse",
+   "id": "avepoint",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Avery Dennison",
+   "ats": "smartrecruiters",
+   "id": "AveryDennison",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Axle",
+   "ats": "greenhouse",
+   "id": "axle",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Axon",
+   "ats": "greenhouse",
+   "id": "axon",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Axsome Therapeutics Inc",
+   "ats": "greenhouse",
+   "id": "axsometherapeutics",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Baidu USA",
+   "ats": "greenhouse",
+   "id": "baidu",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Bank of Montreal",
+   "ats": "workday",
+   "id": "bmo/wd3/Privileged",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Bank of Montreal",
+   "ats": "workday",
+   "id": "bmo/wd3/Campus",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Baseten",
+   "ats": "ashby",
+   "id": "baseten",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "BDC Venture Capital",
+   "ats": "workday",
+   "id": "bdc/wd10/BDC_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "BDO Canada",
+   "ats": "workday",
+   "id": "bdo/wd3/BDO",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Beacon Software",
+   "ats": "ashby",
+   "id": "beaconsoftware",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Behaviour Interactive",
+   "ats": "lever",
+   "id": "bhvr",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "BenchSci",
+   "ats": "lever",
+   "id": "benchsci",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Bertelsmann",
+   "ats": "smartrecruiters",
+   "id": "Bertelsmann-Jobs",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Best Buy",
+   "ats": "workday",
+   "id": "bestbuycanada/wd3/BestBuyCA_Career",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "BiblioCommons",
+   "ats": "workday",
+   "id": "volarisgroup/wd3/BiblioCommons",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Binance",
+   "ats": "ashby",
+   "id": "binance.us",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "BinSentry",
+   "ats": "bamboohr",
+   "id": "binsentry",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Bird Construction",
+   "ats": "workday",
+   "id": "bird/wd3/BirdConstructionCareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Blackberry",
+   "ats": "workday",
+   "id": "bb/wd3/QNX",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Blackberry",
+   "ats": "workday",
+   "id": "bb/wd3/Student",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Blackline Safety",
+   "ats": "workable",
+   "id": "blacklinesafety",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "blend360",
+   "ats": "smartrecruiters",
+   "id": "Blend360",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Blue Robotics",
+   "ats": "rippling",
+   "id": "blue-robotics",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "BlueRock Therapeutics",
+   "ats": "lever",
+   "id": "bluerocktx",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Boeing",
+   "ats": "workday",
+   "id": "boeing/wd1/external_subsidiary",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Boson Ai",
+   "ats": "lever",
+   "id": "bosonai",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "BP",
+   "ats": "workday",
+   "id": "bpinternational/wd3/bpEarlyCareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Brave",
+   "ats": "greenhouse",
+   "id": "brave",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Bree",
+   "ats": "ashby",
+   "id": "bree",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "British Columbia Investment",
+   "ats": "workday",
+   "id": "bci/wd10/BCI_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Broadridge",
+   "ats": "workday",
+   "id": "broadridge/wd5/careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Brookfield",
+   "ats": "workday",
+   "id": "brookfield/wd5/brookfield",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Brookfield",
+   "ats": "workday",
+   "id": "brookfield/wd5/brookfieldprivate",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Cadence Design Systems",
+   "ats": "workday",
+   "id": "cadence/wd1/External_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Cadence Design Systems",
+   "ats": "workday",
+   "id": "cadence/wd1/Univ_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "California Closets",
+   "ats": "smartrecruiters",
+   "id": "CaliforniaClosets",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Calix",
+   "ats": "workday",
+   "id": "calix/wd1/External",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Canadian Bank Note",
+   "ats": "smartrecruiters",
+   "id": "CanadianBankNoteCompany",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Canadian Tire",
+   "ats": "workday",
+   "id": "canadiantirecorporation/wd3/Enterprise_External_Careers_Site",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Canonical",
+   "ats": "greenhouse",
+   "id": "canonical",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Cantina",
+   "ats": "ashby",
+   "id": "cantina",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Capco",
+   "ats": "greenhouse",
+   "id": "capco",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Carta",
+   "ats": "greenhouse",
+   "id": "carta",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Caterpillar Inc.",
+   "ats": "workday",
+   "id": "cat/wd5/CaterpillarCareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "CBC/Radio-Canada",
+   "ats": "workday",
+   "id": "cbcrc/wd3/CBC_Radio-Canada_Jobs",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "CDPQ",
+   "ats": "workday",
+   "id": "cdpq/wd10/CDPQ",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "CDW Corporation",
+   "ats": "workday",
+   "id": "cdw/wd5/careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Cenovus Energy",
+   "ats": "workday",
+   "id": "cenovus/wd3/careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Censys",
+   "ats": "greenhouse",
+   "id": "censys",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Cerebras",
+   "ats": "ashby",
+   "id": "cerebras",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "CGS Immersive",
+   "ats": "greenhouse",
+   "id": "immersive",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Charles River Associates (CRA)",
+   "ats": "greenhouse",
+   "id": "charlesriverassociates",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Charlotte Tilbury",
+   "ats": "workable",
+   "id": "charlotte-tilbury",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "ChowBus",
+   "ats": "greenhouse",
+   "id": "chowbus",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Christie",
+   "ats": "workable",
+   "id": "christie-lites-3",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "CIBC",
+   "ats": "workday",
+   "id": "cibc/wd3/campus",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Cineplex",
+   "ats": "workday",
+   "id": "cineplex/wd3/Cineplex",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Circle K",
+   "ats": "workday",
+   "id": "circlek/wd3/circlekstorejobs",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Cirque du Soleil",
+   "ats": "lever",
+   "id": "cirquedusoleil",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Citi",
+   "ats": "workday",
+   "id": "citi/wd5/2",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Citi",
+   "ats": "workday",
+   "id": "citi/wd5/Citi_Early_Careers_Events_Site",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "City of Mission",
+   "ats": "smartrecruiters",
+   "id": "CityOfMission",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "City of Vancouver",
+   "ats": "workday",
+   "id": "cityofvancouver/wd5/COV",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Citylogix Inc.",
+   "ats": "rippling",
+   "id": "citylogix",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Civica",
+   "ats": "workable",
+   "id": "civica-uk-ltd-1",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "CLEAResult",
+   "ats": "workday",
+   "id": "clearesult/wd1/CLEAResult_External_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Clera",
+   "ats": "ashby",
+   "id": "clera",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Clio",
+   "ats": "workday",
+   "id": "clio/wd3/ClioCareerSite",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Clipboard Health",
+   "ats": "ashby",
+   "id": "clipboard",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Cloud SynApps",
+   "ats": "rippling",
+   "id": "cloud-synapps-inc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "CMC Markets",
+   "ats": "workday",
+   "id": "cmcmarkets/wd3/CMC_Markets_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "CMiC",
+   "ats": "workable",
+   "id": "cmic",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Coder",
+   "ats": "ashby",
+   "id": "coder",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Cogeco",
+   "ats": "workday",
+   "id": "cogeco/wd3/Cogeco_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Collabera",
+   "ats": "smartrecruiters",
+   "id": "Collabera2",
+   "note": "staffing agency: floods alerts with reposts",
+   "enabled": false
+  },
+  {
+   "name": "Colliers",
+   "ats": "workday",
+   "id": "colliers/wd3/Colliers-External-Career-Site",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Cologix",
+   "ats": "lever",
+   "id": "cologix",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Commerce Undergraduate Society",
+   "ats": "lever",
+   "id": "commerce-undergraduate",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "CommerceIQ",
+   "ats": "greenhouse",
+   "id": "commerceiq",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "ConeTec Group",
+   "ats": "bamboohr",
+   "id": "conetec",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Confluent",
+   "ats": "ashby",
+   "id": "confluent",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Constant Contact",
+   "ats": "greenhouse",
+   "id": "constantcontact",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Continental",
+   "ats": "smartrecruiters",
+   "id": "Continental",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Cornerstone Building Brands",
+   "ats": "smartrecruiters",
+   "id": "CornerstoneBuildingBrandsCareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Corpay",
+   "ats": "workday",
+   "id": "corpay/wd103/ext_001",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Correlation One",
+   "ats": "greenhouse",
+   "id": "expertnetwork",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Correlation One",
+   "ats": "greenhouse",
+   "id": "correlationone",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Cortica",
+   "ats": "greenhouse",
+   "id": "allcareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "CoServe Global Solutions",
+   "ats": "smartrecruiters",
+   "id": "CoServeGlobalSolutions",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Coursera",
+   "ats": "greenhouse",
+   "id": "coursera",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Cozey",
+   "ats": "rippling",
+   "id": "cozey-internships",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Cresta",
+   "ats": "greenhouse",
+   "id": "cresta",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Critical Mass",
+   "ats": "greenhouse",
+   "id": "criticalmass",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "CROSSMARK",
+   "ats": "smartrecruiters",
+   "id": "CROSSMARK1",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "CrowdGen by Appen",
+   "ats": "lever",
+   "id": "appen",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Crumbl",
+   "ats": "lever",
+   "id": "crumbl",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "CSC Generation",
+   "ats": "lever",
+   "id": "cscgeneration-2",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Cubic",
+   "ats": "workday",
+   "id": "cubic/wd1/cubic_global_careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Curtiss-Wright Corporation",
+   "ats": "workday",
+   "id": "curtisswright/wd1/cw_external_career_site",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Cushman & Wakefield",
+   "ats": "workday",
+   "id": "cw/wd1/external",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "CuspAI",
+   "ats": "ashby",
+   "id": "cuspai",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "d-Matrix",
+   "ats": "ashby",
+   "id": "d-matrix",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "D-Wave Quantum",
+   "ats": "rippling",
+   "id": "d-wave-quantum",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Danaher Corporation",
+   "ats": "workday",
+   "id": "danaher/wd1/DanaherJobs",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Daniels Health",
+   "ats": "lever",
+   "id": "daniels-sharpsmart",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Dark Wolf Solutions",
+   "ats": "greenhouse",
+   "id": "darkwolfsolutions",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Data Intellect",
+   "ats": "smartrecruiters",
+   "id": "DataIntellect",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "DataVisor",
+   "ats": "workable",
+   "id": "datavisor-jobs",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "DB E.C.O. North America",
+   "ats": "greenhouse",
+   "id": "dbeconorthamerica",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "dcbel Inc",
+   "ats": "bamboohr",
+   "id": "dcbel",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Decagon",
+   "ats": "ashby",
+   "id": "decagon",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Delinea",
+   "ats": "ashby",
+   "id": "delinea",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "DESIGNME Hair",
+   "ats": "greenhouse",
+   "id": "designmehair",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Dexterra Group",
+   "ats": "smartrecruiters",
+   "id": "Dexterra",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "DH Pace",
+   "ats": "greenhouse",
+   "id": "dhpace",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Dialogue",
+   "ats": "rippling",
+   "id": "dialogue-fr",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Dialogue Health Technologies",
+   "ats": "rippling",
+   "id": "dialogue-en",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Dialpad",
+   "ats": "greenhouse",
+   "id": "dialpad",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Digs",
+   "ats": "greenhouse",
+   "id": "digs",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Diligent Corporation",
+   "ats": "greenhouse",
+   "id": "diligentcorporation",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Domino's",
+   "ats": "smartrecruiters",
+   "id": "Dominos",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "DoorDash",
+   "ats": "greenhouse",
+   "id": "doordashcanada",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "DotDash Meredith",
+   "ats": "workday",
+   "id": "meredith/wd5/EXT",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "DRW",
+   "ats": "greenhouse",
+   "id": "drweng",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Dutch",
+   "ats": "lever",
+   "id": "dutch",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "DV Trading",
+   "ats": "greenhouse",
+   "id": "dvtrading",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "E Source Companies",
+   "ats": "ashby",
+   "id": "e-source",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "e-Careers",
+   "ats": "workable",
+   "id": "ecareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Eataly",
+   "ats": "smartrecruiters",
+   "id": "Eataly",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "eBay",
+   "ats": "workday",
+   "id": "ebay/wd5/apply",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Egis Group",
+   "ats": "smartrecruiters",
+   "id": "EgisGroup",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Element Fleet Management",
+   "ats": "workday",
+   "id": "elementfleet/wd3/External_Career_Site",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "ElevenLabs",
+   "ats": "ashby",
+   "id": "elevenlabs",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "EliseAI",
+   "ats": "ashby",
+   "id": "eliseai",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Eliyan",
+   "ats": "lever",
+   "id": "eliyan",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Elk Valley Resources",
+   "ats": "lever",
+   "id": "evr",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Ema",
+   "ats": "ashby",
+   "id": "ema",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Employ",
+   "ats": "lever",
+   "id": "employ",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Encore Auctions",
+   "ats": "rippling",
+   "id": "encore-auctions",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Ennoble Care",
+   "ats": "greenhouse",
+   "id": "ennoblecare",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Ensemble",
+   "ats": "greenhouse",
+   "id": "ensemble",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Entrust",
+   "ats": "workday",
+   "id": "entrust/wd1/entrustcareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Enviri",
+   "ats": "smartrecruiters",
+   "id": "EnviriCorporation",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Equativ",
+   "ats": "lever",
+   "id": "equativ",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Equifax",
+   "ats": "workday",
+   "id": "equifax/wd5/UR_External",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Equinix",
+   "ats": "workday",
+   "id": "equinix/wd1/External",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Equitable Bank",
+   "ats": "lever",
+   "id": "eqbank",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "ERM",
+   "ats": "workday",
+   "id": "erm/wd3/ERM_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "EROS Technologies",
+   "ats": "smartrecruiters",
+   "id": "EROSTechnologiesInc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "EUNA Solutions",
+   "ats": "bamboohr",
+   "id": "euna",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Eurofins",
+   "ats": "smartrecruiters",
+   "id": "Eurofins",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "EverCommerce",
+   "ats": "workday",
+   "id": "evercommerce/wd1/evercommerce_careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Everest",
+   "ats": "workday",
+   "id": "everestre/wd5/careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "EVERSANA",
+   "ats": "smartrecruiters",
+   "id": "EVERSANA1",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Exegy",
+   "ats": "ashby",
+   "id": "exegy",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Expedia Group",
+   "ats": "workday",
+   "id": "expedia/wd108/search",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Expedia Group",
+   "ats": "workday",
+   "id": "expedia/wd108/private",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Expeditors",
+   "ats": "smartrecruiters",
+   "id": "Expeditors",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Extreme Networks",
+   "ats": "lever",
+   "id": "extremenetworks",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Fairstone Financial",
+   "ats": "workday",
+   "id": "fairstone/wd3/FairstoneCareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Farm Credit Canada",
+   "ats": "workday",
+   "id": "fccfac/wd3/careers-carrieres",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Feathery",
+   "ats": "ashby",
+   "id": "feathery",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Field AI",
+   "ats": "lever",
+   "id": "field-ai",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Finning",
+   "ats": "workday",
+   "id": "finning/wd3/External",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "First Canadian Title",
+   "ats": "workday",
+   "id": "firstam/wd1/fctcareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "First Quantum Minerals",
+   "ats": "workday",
+   "id": "firstquantum/wd3/First_Quantum_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Fiserv",
+   "ats": "workday",
+   "id": "fiserv/wd5/ext",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "FISPAN",
+   "ats": "bamboohr",
+   "id": "fispan",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Flashpoint",
+   "ats": "ashby",
+   "id": "flashpoint.io",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Flexport",
+   "ats": "greenhouse",
+   "id": "flexport",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "FlightHub",
+   "ats": "greenhouse",
+   "id": "flighthub",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Focus Financial Partners",
+   "ats": "greenhouse",
+   "id": "focusfinancialpartners",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Foresters Financial",
+   "ats": "workday",
+   "id": "foresters/wd3/ForestersFinancialCareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Four Seasons",
+   "ats": "workday",
+   "id": "fourseasons/wd3/search",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Fresenius Medical Care",
+   "ats": "workday",
+   "id": "freseniusmedicalcare/wd3/fme",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "FS Studio",
+   "ats": "ashby",
+   "id": "fs-studio",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Fullscript",
+   "ats": "lever",
+   "id": "fullscript",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Fuse Energy",
+   "ats": "ashby",
+   "id": "fuse",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Gaiia",
+   "ats": "rippling",
+   "id": "gaiias-open-positions",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "GE Aerospace",
+   "ats": "workday",
+   "id": "geaerospace/wd5/ge_externalsite",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "GE Healthcare",
+   "ats": "workday",
+   "id": "gehc/wd5/GEHC_ExternalSite",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "GE Vernova",
+   "ats": "workday",
+   "id": "gevernova/wd5/only_confidential_executive_recruiting",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "GE Vernova",
+   "ats": "workday",
+   "id": "gevernova/wd5/vernova_externalsite",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Generac",
+   "ats": "workday",
+   "id": "generac/wd5/external",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "General Dynamics UK",
+   "ats": "smartrecruiters",
+   "id": "GDMSI",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "General Motors",
+   "ats": "workday",
+   "id": "generalmotors/wd5/Careers_GM",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Genetec",
+   "ats": "workable",
+   "id": "genetec-inc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Gentex Corporation",
+   "ats": "workday",
+   "id": "gentex/wd5/Gentex",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "GeoComply",
+   "ats": "lever",
+   "id": "geocomply-2",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Georgian Partners Growth",
+   "ats": "ashby",
+   "id": "georgian",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Geotab",
+   "ats": "greenhouse",
+   "id": "internshiplist2000",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Giga AI",
+   "ats": "ashby",
+   "id": "gigaml",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Glia",
+   "ats": "ashby",
+   "id": "glia",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Globalization Partners",
+   "ats": "greenhouse",
+   "id": "globalizationpartners",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "GoMaterials",
+   "ats": "lever",
+   "id": "gomaterials",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Gore Mutual Insurance",
+   "ats": "greenhouse",
+   "id": "goremutualinsurance",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Gorgias",
+   "ats": "ashby",
+   "id": "gorgias",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "GoTo Group",
+   "ats": "workday",
+   "id": "goto/wd5/GoToCareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Gradial",
+   "ats": "greenhouse",
+   "id": "gradial",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Grafana Labs",
+   "ats": "greenhouse",
+   "id": "grafanalabs",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Great Question",
+   "ats": "ashby",
+   "id": "greatquestion",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Greenhouse",
+   "ats": "greenhouse",
+   "id": "greenhouse",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Grow Therapy",
+   "ats": "ashby",
+   "id": "grow-therapy",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "GrowthLoop",
+   "ats": "greenhouse",
+   "id": "growthloop",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "GSK",
+   "ats": "workday",
+   "id": "gsk/wd5/GSKCareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Guidepoint",
+   "ats": "greenhouse",
+   "id": "guidepoint",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Gumloop",
+   "ats": "ashby",
+   "id": "gumloop",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Handshake",
+   "ats": "ashby",
+   "id": "handshake",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Hankook Tire America ",
+   "ats": "greenhouse",
+   "id": "hankooktireamericacorp",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Harbor",
+   "ats": "greenhouse",
+   "id": "harborglobal",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Hard Rock Digital",
+   "ats": "recruitee",
+   "id": "hardrockdigital",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Harris Computer",
+   "ats": "workday",
+   "id": "harriscomputer/wd3/1",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Harvey",
+   "ats": "ashby",
+   "id": "harvey",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Hasbro",
+   "ats": "greenhouse",
+   "id": "hasbro",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Hatch IT",
+   "ats": "lever",
+   "id": "hatchit",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Haven Studios",
+   "ats": "greenhouse",
+   "id": "haven",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "HealthCorps",
+   "ats": "workable",
+   "id": "healthcorpsorg",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "HeartFlow",
+   "ats": "greenhouse",
+   "id": "heartflowinc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Henry Schein",
+   "ats": "workday",
+   "id": "henryschein/wd1/External_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Hewlett Packard (HP)",
+   "ats": "workday",
+   "id": "hp/wd5/EXTEU-AC-CareerSite",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Hewlett Packard Enterprise",
+   "ats": "workday",
+   "id": "hpe/wd5/acjobsite",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Highbeam",
+   "ats": "ashby",
+   "id": "highbeam",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Hiive",
+   "ats": "ashby",
+   "id": "hiive",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Hinge Health",
+   "ats": "ashby",
+   "id": "hinge-health",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Hitachi",
+   "ats": "workday",
+   "id": "hitachi/wd1/hitachi",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "HOKALI",
+   "ats": "workable",
+   "id": "hokali",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Homebase",
+   "ats": "ashby",
+   "id": "homebase",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "HUB International",
+   "ats": "workday",
+   "id": "hubinternational/wd1/HUBInternational",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Human Computer Lab",
+   "ats": "ashby",
+   "id": "human-computer-lab",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Humanoid",
+   "ats": "ashby",
+   "id": "humanoid",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "HumanSignal",
+   "ats": "greenhouse",
+   "id": "humansignal",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Huron",
+   "ats": "workday",
+   "id": "huron/wd1/huroncareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "iCapital Network",
+   "ats": "greenhouse",
+   "id": "icapitalnetwork",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "IEM",
+   "ats": "greenhouse",
+   "id": "industrialelectricmanufacturing",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "IFS",
+   "ats": "smartrecruiters",
+   "id": "IFS1",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "IKO",
+   "ats": "workday",
+   "id": "iko/wd3/iko_careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Illumio",
+   "ats": "ashby",
+   "id": "illumio",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Immiland Canada",
+   "ats": "lever",
+   "id": "immiland-canada-inc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Information Services Corporation",
+   "ats": "workday",
+   "id": "isc/wd10/ISC",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Infoways",
+   "ats": "smartrecruiters",
+   "id": "Info-Ways",
+   "note": "staffing agency: floods alerts with reposts",
+   "enabled": false
+  },
+  {
+   "name": "Inmar Intelligence",
+   "ats": "workday",
+   "id": "inmar/wd1/inmarcareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Innodata",
+   "ats": "greenhouse",
+   "id": "innodatainc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "InstaLILY",
+   "ats": "greenhouse",
+   "id": "instalilyai",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Intact",
+   "ats": "workday",
+   "id": "intactfc/wd3/intactfc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Intelcom | Dragonfly",
+   "ats": "workday",
+   "id": "intelcomgroup/wd3/Intelcom",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Intelerad",
+   "ats": "smartrecruiters",
+   "id": "Intelerad",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Interac",
+   "ats": "workday",
+   "id": "interac/wd3/Interac",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Interdigital",
+   "ats": "workday",
+   "id": "interdigital/wd5/InterDigital_Intern",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Intuitive Surgical",
+   "ats": "smartrecruiters",
+   "id": "Intuitive",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Investment Management Corporation of Ontario",
+   "ats": "workday",
+   "id": "imcoinvest/wd3/IMCO",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "IonQ",
+   "ats": "greenhouse",
+   "id": "ionq",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "IQVIA",
+   "ats": "workday",
+   "id": "iqvia/wd1/IQVIA",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "ISAAC Instruments",
+   "ats": "smartrecruiters",
+   "id": "ISAACInstruments",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Ivalua",
+   "ats": "greenhouse",
+   "id": "ivalua",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "J.S. Held",
+   "ats": "smartrecruiters",
+   "id": "JSHeldLLC",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Jabil",
+   "ats": "workday",
+   "id": "jabil/wd5/Jabil_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Jam City",
+   "ats": "lever",
+   "id": "jamcity",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Jerry",
+   "ats": "ashby",
+   "id": "jerry.ai",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Jobs for Humanity",
+   "ats": "smartrecruiters",
+   "id": "JobsForHumanity",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "John Wiley & Sons",
+   "ats": "workday",
+   "id": "wiley/wd1/wiley_careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Johnson & Johnson",
+   "ats": "workday",
+   "id": "jj/wd5/JJ",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Johnson Controls",
+   "ats": "workday",
+   "id": "jci/wd5/JCI",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Jonas Software",
+   "ats": "workday",
+   "id": "talentmanagementsolution/wd3/JonasSoftwareCanada",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Jones Lang LaSalle (JLL)",
+   "ats": "workday",
+   "id": "jll/wd1/jllcareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Journal Technologies",
+   "ats": "rippling",
+   "id": "journaltech",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Jumio",
+   "ats": "greenhouse",
+   "id": "jumio",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Juniper Square",
+   "ats": "ashby",
+   "id": "junipersquare",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Kabam",
+   "ats": "lever",
+   "id": "kabam",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Kanshe Infotech",
+   "ats": "smartrecruiters",
+   "id": "Learnkwikcom",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Keenfinity",
+   "ats": "smartrecruiters",
+   "id": "Keenfinity",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Kensington",
+   "ats": "greenhouse",
+   "id": "kensingtontours",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Keyrock",
+   "ats": "ashby",
+   "id": "keyrock",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Klue",
+   "ats": "ashby",
+   "id": "klue",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "KnowBe4",
+   "ats": "greenhouse",
+   "id": "knowbe4",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Kobo",
+   "ats": "workday",
+   "id": "rakuten/wd1/Kobo",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Kong",
+   "ats": "ashby",
+   "id": "kong",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Kpler",
+   "ats": "lever",
+   "id": "kpler",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "KRAFTON",
+   "ats": "greenhouse",
+   "id": "studiokraftonboard",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Kraken Robotics",
+   "ats": "rippling",
+   "id": "kraken-robotics-inc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "KRG Technologies",
+   "ats": "smartrecruiters",
+   "id": "KrgTechnologyInc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Lambda",
+   "ats": "ashby",
+   "id": "lambda",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Larian Studios",
+   "ats": "lever",
+   "id": "larian",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "LawDepot",
+   "ats": "ashby",
+   "id": "lawdepot",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "LayerZero Labs",
+   "ats": "greenhouse",
+   "id": "layerzerolabs",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "League",
+   "ats": "greenhouse",
+   "id": "leagueinc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "LEAP Legal Software",
+   "ats": "workable",
+   "id": "leap-legal-software",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "LexisNexis Risk Solutions",
+   "ats": "workday",
+   "id": "relx/wd3/LexisNexisLegal",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "LGC Group",
+   "ats": "smartrecruiters",
+   "id": "LGCGroup",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Lightmatter",
+   "ats": "greenhouse",
+   "id": "lightmatter",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Likewize",
+   "ats": "workday",
+   "id": "likewize/wd1/External",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Lilt",
+   "ats": "ashby",
+   "id": "lilt-production",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "LinkedIn",
+   "ats": "smartrecruiters",
+   "id": "LinkedIn3",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Litera",
+   "ats": "workday",
+   "id": "litera/wd12/Litera_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Littelfuse",
+   "ats": "workday",
+   "id": "littelfuse/wd1/Littelfuse-Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Loblaw Companies",
+   "ats": "workday",
+   "id": "myview/wd3/paradox_careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Locus Robotics",
+   "ats": "greenhouse",
+   "id": "locusrobotics",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Loop",
+   "ats": "rippling",
+   "id": "loop-careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Loram",
+   "ats": "smartrecruiters",
+   "id": "Loram1",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Louis Dreyfus Company",
+   "ats": "smartrecruiters",
+   "id": "LouisDreyfusCompany",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Lucid Motors",
+   "ats": "greenhouse",
+   "id": "lucidmotors",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Lumentum",
+   "ats": "workday",
+   "id": "lumentum/wd5/LITE",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Luminance",
+   "ats": "workable",
+   "id": "luminance-1",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Lynx Software Technologies, Inc.",
+   "ats": "rippling",
+   "id": "lynx-software-technologies",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Léger",
+   "ats": "smartrecruiters",
+   "id": "Leger2",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Magnet Forensics",
+   "ats": "lever",
+   "id": "magnetforensics",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Manulife Financial",
+   "ats": "workday",
+   "id": "manulife/wd3/MFCJH_adminJobs",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Maple Leaf Sports & Entertainment Partnership (MLSE)",
+   "ats": "workday",
+   "id": "mlse/wd3/MLSE",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Marmon Holdings",
+   "ats": "workday",
+   "id": "marmon/wd501/Marmon_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Mars",
+   "ats": "workday",
+   "id": "mars/wd3/external",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Marsh",
+   "ats": "workday",
+   "id": "mmc/wd1/mmc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Marvell",
+   "ats": "workday",
+   "id": "marvell/wd1/MarvellCareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Marvell",
+   "ats": "workday",
+   "id": "marvell/wd1/MarvellCareers2",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Masco",
+   "ats": "workday",
+   "id": "masco/wd1/Masco",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Mastercard",
+   "ats": "workday",
+   "id": "mastercard/wd1/Campus",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "MAT Holdings",
+   "ats": "smartrecruiters",
+   "id": "MATHoldings",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Mattel",
+   "ats": "smartrecruiters",
+   "id": "MattelInc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Maxima",
+   "ats": "ashby",
+   "id": "maxima",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Maya HTT",
+   "ats": "ashby",
+   "id": "maya-htt",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Maya HTT",
+   "ats": "ashby",
+   "id": "fr",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "McAfee",
+   "ats": "workday",
+   "id": "mcafee/wd1/external",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "McGill University",
+   "ats": "workday",
+   "id": "mcgill/wd3/McGill_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "McKesson",
+   "ats": "workday",
+   "id": "mckesson/wd3/External_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "McKinney",
+   "ats": "greenhouse",
+   "id": "jobsmckinneycom",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "McWane",
+   "ats": "smartrecruiters",
+   "id": "McWaneInc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Medavie",
+   "ats": "workday",
+   "id": "medaviehs/wd10/Medavie_External",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "MedElite",
+   "ats": "greenhouse",
+   "id": "medelitellc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Medtronic",
+   "ats": "workday",
+   "id": "medtronic/wd1/redeploymentmedtroniccareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Menasha Corporation",
+   "ats": "workday",
+   "id": "menasha/wd12/menashacorp",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Mendix",
+   "ats": "lever",
+   "id": "mendix",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Merative",
+   "ats": "smartrecruiters",
+   "id": "TruvenHealthAnalyticsanIBMCompany",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Merck",
+   "ats": "workday",
+   "id": "msd/wd5/searchjobs",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Mercury",
+   "ats": "greenhouse",
+   "id": "mercury",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Meshy",
+   "ats": "ashby",
+   "id": "meshy",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Metergy Solutions",
+   "ats": "lever",
+   "id": "metergysolutions",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Michelin",
+   "ats": "workday",
+   "id": "michelinhr/wd3/Michelin",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Mikata Health",
+   "ats": "rippling",
+   "id": "mikata",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Mindlance",
+   "ats": "smartrecruiters",
+   "id": "Mindlance2",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Mintlify",
+   "ats": "ashby",
+   "id": "mintlify",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Miovision",
+   "ats": "ashby",
+   "id": "miovision",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "MiQ",
+   "ats": "workday",
+   "id": "miqdigital/wd3/MiQ_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Mirego",
+   "ats": "lever",
+   "id": "mirego",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Mistral AI",
+   "ats": "ashby",
+   "id": "mistral.ai",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "MKS Instruments",
+   "ats": "workday",
+   "id": "mksinst/wd1/MKSCareersUniversity",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Moment Energy",
+   "ats": "greenhouse",
+   "id": "momentenergy",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Monarch Money",
+   "ats": "ashby",
+   "id": "monarchmoney",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Monster Energy",
+   "ats": "greenhouse",
+   "id": "monsterenergy",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Montreal Institute for Learning Algorithms",
+   "ats": "workable",
+   "id": "mila-2",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Morgan Stanley",
+   "ats": "workday",
+   "id": "ms/wd5/private",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Morningstar",
+   "ats": "workday",
+   "id": "morningstar/wd5/Americas",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Mosaic",
+   "ats": "workday",
+   "id": "mosaic/wd5/mosaic",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Motorola",
+   "ats": "workday",
+   "id": "motorolasolutions/wd5/Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Mozilla",
+   "ats": "greenhouse",
+   "id": "mozilla",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "MSX International",
+   "ats": "smartrecruiters",
+   "id": "MSXInternational",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "mthree",
+   "ats": "greenhouse",
+   "id": "mthreerecruitingportal",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Mytra",
+   "ats": "rippling",
+   "id": "mytra",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "n8n",
+   "ats": "ashby",
+   "id": "n8n",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Nascent",
+   "ats": "ashby",
+   "id": "nascent",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Nasdaq",
+   "ats": "workday",
+   "id": "nasdaq/wd1/Global_External_Site",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "National Water Services",
+   "ats": "rippling",
+   "id": "nws",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "NationGraph",
+   "ats": "ashby",
+   "id": "nationgraph",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "NAV CANADA",
+   "ats": "workday",
+   "id": "navcanada/wd10/NAV_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "NBCUniversal",
+   "ats": "smartrecruiters",
+   "id": "NBCUniversal3",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Nerdio",
+   "ats": "rippling",
+   "id": "nerdio-careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "NERv Technology Inc. D.B.A. FluidAI Medical",
+   "ats": "rippling",
+   "id": "fluidai-medical-careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "nesto",
+   "ats": "rippling",
+   "id": "nesto",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Nesto Cloud",
+   "ats": "rippling",
+   "id": "nestocloud",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "New Flyer",
+   "ats": "workable",
+   "id": "new-flyer",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Nexthop.ai",
+   "ats": "bamboohr",
+   "id": "nexthopai",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Nielsen",
+   "ats": "smartrecruiters",
+   "id": "NielsenIQ",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Nielsen",
+   "ats": "smartrecruiters",
+   "id": "TheNielsenCompany",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Nimble Gravity",
+   "ats": "greenhouse",
+   "id": "nimblegravity",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "NMI",
+   "ats": "greenhouse",
+   "id": "nmi",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Novartis",
+   "ats": "workday",
+   "id": "novartis/wd3/Novartis_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Nozomi Networks",
+   "ats": "greenhouse",
+   "id": "nozominetworks",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Nuclear Promise X",
+   "ats": "ashby",
+   "id": "npx",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "NumerixS Quant",
+   "ats": "ashby",
+   "id": "numerixs-quant",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "NXP Semiconductors",
+   "ats": "workday",
+   "id": "nxp/wd3/careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "OBE",
+   "ats": "greenhouse",
+   "id": "oldcastlebuildingenvelope",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Occidental Petroleum",
+   "ats": "workday",
+   "id": "oxy/wd5/Corporate",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "OLG",
+   "ats": "workday",
+   "id": "olg/wd3/Careers-Students",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "OMERS",
+   "ats": "workday",
+   "id": "omers/wd3/omers_external",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Omnicom Group",
+   "ats": "workday",
+   "id": "interpublic/wd5/omc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "OnLogic",
+   "ats": "workable",
+   "id": "onlogic-inc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Ontario Health",
+   "ats": "workday",
+   "id": "oh/wd3/OH",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Ontario Teachers' Pension Plan",
+   "ats": "workday",
+   "id": "otppb/wd3/OntarioTeachers_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Onware",
+   "ats": "rippling",
+   "id": "onware",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Ooma",
+   "ats": "greenhouse",
+   "id": "ooma",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Open Farm Pet",
+   "ats": "greenhouse",
+   "id": "openfarminc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "OpenLoop",
+   "ats": "ashby",
+   "id": "openloophealth",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "OpenTable",
+   "ats": "greenhouse",
+   "id": "opentable",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "OPTrust",
+   "ats": "workday",
+   "id": "optrust/wd3/OPTrust",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "OpusClip",
+   "ats": "ashby",
+   "id": "opusclip",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "OraSure Technologies",
+   "ats": "lever",
+   "id": "dnagenotek",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Orennia",
+   "ats": "greenhouse",
+   "id": "orennia",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Ovintiv",
+   "ats": "workday",
+   "id": "ovintiv/wd3/ovintivcareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "PagerDuty",
+   "ats": "greenhouse",
+   "id": "pagerduty",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "PAR Tech",
+   "ats": "ashby",
+   "id": "par%20technology",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Parsons",
+   "ats": "workday",
+   "id": "parsons/wd5/search",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Path Robotics",
+   "ats": "greenhouse",
+   "id": "pathrobotics",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "PCMI",
+   "ats": "rippling",
+   "id": "pcmi",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Pearl Health",
+   "ats": "ashby",
+   "id": "pearlhealth",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Pebl",
+   "ats": "ashby",
+   "id": "pebl",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Pelmorex",
+   "ats": "lever",
+   "id": "pelmorex",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Penn Interactive",
+   "ats": "greenhouse",
+   "id": "penninteractive",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "People Culture Talent",
+   "ats": "ashby",
+   "id": "people-culture-talent",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Peregrine",
+   "ats": "greenhouse",
+   "id": "peregrinetechnologies",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Periodic Labs",
+   "ats": "ashby",
+   "id": "periodic-labs",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Perle",
+   "ats": "rippling",
+   "id": "perle",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "PermitFlow",
+   "ats": "ashby",
+   "id": "permitflow",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Perplexity AI",
+   "ats": "ashby",
+   "id": "perplexity",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Perseus Group",
+   "ats": "workday",
+   "id": "talentmanagementsolution/wd3/perseus-careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Phaidra",
+   "ats": "greenhouse",
+   "id": "phaidra",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Philips",
+   "ats": "workday",
+   "id": "philips/wd3/jobs-and-careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Phlair",
+   "ats": "ashby",
+   "id": "phlair",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Phonely",
+   "ats": "ashby",
+   "id": "phonely",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Picton Mahoney Asset Management",
+   "ats": "bamboohr",
+   "id": "pictonmahoney",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Pigment",
+   "ats": "lever",
+   "id": "pigment",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Pilot Company",
+   "ats": "smartrecruiters",
+   "id": "PilotCompany",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Ping Identity",
+   "ats": "greenhouse",
+   "id": "pingidentity",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Planet",
+   "ats": "greenhouse",
+   "id": "planetlabs",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "PLS",
+   "ats": "greenhouse",
+   "id": "plscareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Pluralis Research",
+   "ats": "ashby",
+   "id": "pluralis-research",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Plusgrade",
+   "ats": "lever",
+   "id": "plusgrade",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Pogo Technologies, Inc.",
+   "ats": "ashby",
+   "id": "joinpogo",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Point72",
+   "ats": "greenhouse",
+   "id": "point72",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Power TakeOff",
+   "ats": "rippling",
+   "id": "power-takeoff-careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "PQ",
+   "ats": "smartrecruiters",
+   "id": "PQ",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Preference Model",
+   "ats": "ashby",
+   "id": "preference-model",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Premium Merchant Funding",
+   "ats": "workable",
+   "id": "premium-merchant-funding-3",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Priceline",
+   "ats": "workday",
+   "id": "priceline/wd1/Priceline",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "PricewaterhouseCoopers (PwC)",
+   "ats": "workday",
+   "id": "pwc/wd3/Global_Campus_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Procter & Gamble (P&G)",
+   "ats": "workday",
+   "id": "pg/wd5/1000",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Promise Robotics",
+   "ats": "lever",
+   "id": "promiserobotics",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Proofpoint",
+   "ats": "workday",
+   "id": "proofpoint/wd5/proofpointcareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Prosidian Consulting",
+   "ats": "smartrecruiters",
+   "id": "prosidianconsulting",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "PSP Investments",
+   "ats": "workday",
+   "id": "investpsp/wd3/psp_careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Pure Storage",
+   "ats": "greenhouse",
+   "id": "purestorage",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "PureFacts Financial Solutions",
+   "ats": "rippling",
+   "id": "purefacts_jobs",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "qode.world",
+   "ats": "workable",
+   "id": "qodeworld",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Quadric",
+   "ats": "workable",
+   "id": "quadric-dot-i-o-inc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Qualifacts",
+   "ats": "workday",
+   "id": "qualifacts/wd5/Qualifacts_External_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Quandri",
+   "ats": "lever",
+   "id": "quandri",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Quantcast",
+   "ats": "ashby",
+   "id": "quantcast",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Quantexa",
+   "ats": "ashby",
+   "id": "quantexa",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "QuEra Computing",
+   "ats": "greenhouse",
+   "id": "queracomputinginc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Quiktrak",
+   "ats": "bamboohr",
+   "id": "quiktrakcontractor",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Quince",
+   "ats": "greenhouse",
+   "id": "quince",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Quora",
+   "ats": "ashby",
+   "id": "quora",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Radiant Info Systems",
+   "ats": "smartrecruiters",
+   "id": "RadiantInfoSystemsLtd",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "RAVL",
+   "ats": "lever",
+   "id": "ravl_io",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Real Chemistry",
+   "ats": "greenhouse",
+   "id": "realchemistry",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Red Bull",
+   "ats": "smartrecruiters",
+   "id": "RedBull",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Red Rabbit Robotics",
+   "ats": "workable",
+   "id": "red-rabbit-robotics",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Relay Financial",
+   "ats": "ashby",
+   "id": "relayfi",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "RELX",
+   "ats": "workday",
+   "id": "relx/wd3/relx",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Remarcable",
+   "ats": "ashby",
+   "id": "remarcable-inc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Resmed",
+   "ats": "workday",
+   "id": "resmed/wd3/ResMed_External_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "RESPEC",
+   "ats": "smartrecruiters",
+   "id": "RESPECInc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "ResponsiveAds",
+   "ats": "workable",
+   "id": "responsiveads-inc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Retell AI",
+   "ats": "ashby",
+   "id": "retell-ai",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "RevenueCat",
+   "ats": "ashby",
+   "id": "revenuecat",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Revvity",
+   "ats": "workday",
+   "id": "revvity/wd103/External",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Richardson",
+   "ats": "workday",
+   "id": "richardson/wd3/richardson_our_careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Ridgeline",
+   "ats": "greenhouse",
+   "id": "ridgeline",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Rippling",
+   "ats": "rippling",
+   "id": "rippling",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Riveron",
+   "ats": "ashby",
+   "id": "riveron",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Riverside Natural Foods",
+   "ats": "greenhouse",
+   "id": "riversidenaturalfoodsltd",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Rivian and Volkswagen Group Technologies",
+   "ats": "ashby",
+   "id": "rivianvw.tech",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Robert Bosch Venture Capital",
+   "ats": "smartrecruiters",
+   "id": "BoschGroup",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Roche",
+   "ats": "workday",
+   "id": "roche/wd3/roche-ext",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Rocket Lab USA",
+   "ats": "greenhouse",
+   "id": "rocketlab",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Rockstar Games",
+   "ats": "greenhouse",
+   "id": "rockstargames",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Rockwell Automation",
+   "ats": "workday",
+   "id": "rockwellautomation/wd1/External_Rockwell_Automation",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Rockwell Automation",
+   "ats": "workday",
+   "id": "rockwellautomation/wd1/External-Rockwell-Automation-Early-Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "ROCKWOOL Group",
+   "ats": "workday",
+   "id": "rockwoolgroup/wd3/ROCKWOOL",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Rokt",
+   "ats": "workable",
+   "id": "rokt",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Roljobs Technology Services",
+   "ats": "smartrecruiters",
+   "id": "RA2",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Rolls-Royce",
+   "ats": "workday",
+   "id": "rollsroyce/wd3/professional",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Royal Bank of Canada",
+   "ats": "workday",
+   "id": "rbc/wd3/ExternalPrivatePostingStudents",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Royal Bank of Canada",
+   "ats": "workday",
+   "id": "rbc/wd3/RBCEARLYTALENT1",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "RR Donnelley",
+   "ats": "smartrecruiters",
+   "id": "RRDonnelley",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "RSM",
+   "ats": "workday",
+   "id": "rsm/wd1/RSMCareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "RTX",
+   "ats": "workday",
+   "id": "globalhr/wd5/rec_rtx_ext_gateway",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "RTX",
+   "ats": "workday",
+   "id": "globalhr/wd5/Private_Posting_No_TMP",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Ryder System",
+   "ats": "workday",
+   "id": "ryder/wd5/RyderCareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "S&P Global ",
+   "ats": "workday",
+   "id": "spgi/wd5/SPGI_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "SA Technologies",
+   "ats": "smartrecruiters",
+   "id": "SATechnologiesInc4",
+   "note": "staffing agency: floods alerts with reposts",
+   "enabled": false
+  },
+  {
+   "name": "SALT XC",
+   "ats": "greenhouse",
+   "id": "saltxc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "SandboxAQ",
+   "ats": "ashby",
+   "id": "sandboxaq",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Sandvik",
+   "ats": "workday",
+   "id": "sandvik/wd3/sandvik-jobs",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Sanofi",
+   "ats": "workday",
+   "id": "sanofi/wd3/SanofiCareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Saputo",
+   "ats": "workday",
+   "id": "saputo/wd5/saputo_external_careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Sardine",
+   "ats": "ashby",
+   "id": "sardine",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Saviynt",
+   "ats": "lever",
+   "id": "saviynt",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Scale AI",
+   "ats": "greenhouse",
+   "id": "scaleai",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Schweitzer Engineering Laboratories",
+   "ats": "workday",
+   "id": "selinc/wd1/SEL",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Scopely",
+   "ats": "greenhouse",
+   "id": "scopely",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Seeq",
+   "ats": "workable",
+   "id": "seeq",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Semtech",
+   "ats": "workday",
+   "id": "semtech/wd1/SemtechCareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Semtech",
+   "ats": "workday",
+   "id": "semtech/wd1/SemtechJobs",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Sensiple",
+   "ats": "smartrecruiters",
+   "id": "EProInc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Sentra",
+   "ats": "ashby",
+   "id": "sentra",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Sentry",
+   "ats": "ashby",
+   "id": "sentry",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Serve Robotics",
+   "ats": "ashby",
+   "id": "serverobotics",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "ServiceNow",
+   "ats": "smartrecruiters",
+   "id": "ServiceNow",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Sezzle",
+   "ats": "greenhouse",
+   "id": "sezzle",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "SharkNinja",
+   "ats": "greenhouse",
+   "id": "sharkninjaoperatingllc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Shift",
+   "ats": "greenhouse",
+   "id": "shifttechnology",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "ShyftLabs",
+   "ats": "lever",
+   "id": "shyftlabs",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Sia Partners",
+   "ats": "smartrecruiters",
+   "id": "Sia",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Sibros",
+   "ats": "rippling",
+   "id": "sibros-technologies",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Sierra",
+   "ats": "ashby",
+   "id": "sierra",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Sika",
+   "ats": "smartrecruiters",
+   "id": "SikaAG",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "SKYTRAC",
+   "ats": "rippling",
+   "id": "skytrac",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Smiths Detection Group",
+   "ats": "smartrecruiters",
+   "id": "SmithsGroup2",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "SOCi",
+   "ats": "greenhouse",
+   "id": "soci",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Société Générale de Surveillance (SGS)",
+   "ats": "smartrecruiters",
+   "id": "SGS",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Socket",
+   "ats": "ashby",
+   "id": "socket",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Socure",
+   "ats": "ashby",
+   "id": "socure",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Solidigm",
+   "ats": "smartrecruiters",
+   "id": "Solidigm",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Solink",
+   "ats": "ashby",
+   "id": "solink",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "SOMFY Group",
+   "ats": "smartrecruiters",
+   "id": "somfygroup",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Sonatus",
+   "ats": "greenhouse",
+   "id": "sonatus",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Sony Interactive Entertainment",
+   "ats": "greenhouse",
+   "id": "sonyinteractiveentertainmentglobal",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Sony Pictures Imageworks",
+   "ats": "greenhouse",
+   "id": "sonypicturesimageworks",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Sophos",
+   "ats": "lever",
+   "id": "sophos",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Sopra Steria",
+   "ats": "smartrecruiters",
+   "id": "SopraSteria1",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "SOTI",
+   "ats": "workday",
+   "id": "soti/wd3/Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "SOTI",
+   "ats": "workday",
+   "id": "soti/wd3/SOTI-Next-Gen",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "SourceDirect Talent",
+   "ats": "smartrecruiters",
+   "id": "SourceDirectTalent",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "SpawGlass",
+   "ats": "lever",
+   "id": "spawglass",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Speechify",
+   "ats": "greenhouse",
+   "id": "speechify",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "SpryPoint",
+   "ats": "lever",
+   "id": "sprypointservices",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "SQA Services",
+   "ats": "lever",
+   "id": "sqaservices",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "SS&C",
+   "ats": "workday",
+   "id": "ssctech/wd1/ssctechnologies",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "StackAdapt",
+   "ats": "greenhouse",
+   "id": "stackadapt",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Starling Bank",
+   "ats": "workable",
+   "id": "starling-bank",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "State Street",
+   "ats": "workday",
+   "id": "statestreet/wd1/Global",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "STEM Expert",
+   "ats": "smartrecruiters",
+   "id": "StemXpert1",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Strada",
+   "ats": "ashby",
+   "id": "stradahq",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Stryker",
+   "ats": "workday",
+   "id": "stryker/wd1/StrykerCareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Sun Life",
+   "ats": "workday",
+   "id": "sunlife/wd3/Campus",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Suncor",
+   "ats": "workday",
+   "id": "suncor/wd1/Suncor_External",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "SunSource",
+   "ats": "lever",
+   "id": "sunsrce",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Super",
+   "ats": "ashby",
+   "id": "super.com",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Superhuman",
+   "ats": "ashby",
+   "id": "superhuman%20platform%20inc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Supernova Technology",
+   "ats": "rippling",
+   "id": "supernova-technology",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Sutherland",
+   "ats": "smartrecruiters",
+   "id": "Sutherland",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Synechron",
+   "ats": "workday",
+   "id": "synechron/wd1/SynechronCareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Syngenta Group",
+   "ats": "smartrecruiters",
+   "id": "SyngentaGroup",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Syska Hennessy Group",
+   "ats": "greenhouse",
+   "id": "syskahennessy",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "System Canada Technologies",
+   "ats": "smartrecruiters",
+   "id": "systemCanadaTechnologies",
+   "note": "staffing agency: floods alerts with reposts",
+   "enabled": false
+  },
+  {
+   "name": "Take Two",
+   "ats": "greenhouse",
+   "id": "taketwo",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Talan",
+   "ats": "smartrecruiters",
+   "id": "Talan",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Tanium",
+   "ats": "greenhouse",
+   "id": "tanium",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "TC Energy",
+   "ats": "workday",
+   "id": "tcenergy/wd3/CAREER_SITE_TC",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "TD Synnex",
+   "ats": "workday",
+   "id": "synnex/wd5/tdsynnexcareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Teamworks",
+   "ats": "ashby",
+   "id": "teamworks",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Tech Tammina",
+   "ats": "smartrecruiters",
+   "id": "TecTammina",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Teledyne",
+   "ats": "workday",
+   "id": "flir/wd1/flircareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Telesat",
+   "ats": "lever",
+   "id": "telesat",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "TELUS",
+   "ats": "workday",
+   "id": "lifeworks/wd3/External",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "TELUS Digital",
+   "ats": "ashby",
+   "id": "telus-digital",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Tempo",
+   "ats": "ashby",
+   "id": "tempo",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Tempo ",
+   "ats": "ashby",
+   "id": "tempo-io",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Tenstorrent",
+   "ats": "greenhouse",
+   "id": "tenstorrentuniversity",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Teranet",
+   "ats": "workday",
+   "id": "tera/wd3/TERANET",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Terminal",
+   "ats": "ashby",
+   "id": "terminal",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Texas Sports Academy",
+   "ats": "workable",
+   "id": "texas-sports-academy-main",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Thales",
+   "ats": "workday",
+   "id": "thales/wd3/Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "The Boeing Company",
+   "ats": "workday",
+   "id": "boeing/wd1/EXTERNAL_CAREERS",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "The Brattle Group",
+   "ats": "greenhouse",
+   "id": "thebrattlegroup",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "The Home Depot",
+   "ats": "workday",
+   "id": "homedepot/wd5/CareerDepotCanada",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "The Redesign Group",
+   "ats": "rippling",
+   "id": "redesigncareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "The Trade Desk",
+   "ats": "greenhouse",
+   "id": "thetradedesk",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "The Wonderful Company",
+   "ats": "smartrecruiters",
+   "id": "TheWonderfulCompany",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Thermo Fisher Scientific",
+   "ats": "workday",
+   "id": "thermofisher/wd5/ThermoFisherCareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Thoughtworks",
+   "ats": "greenhouse",
+   "id": "thoughtworksreferral",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Thumbtack",
+   "ats": "ashby",
+   "id": "thumbtack",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "thyssenkrupp",
+   "ats": "workday",
+   "id": "thyssenkruppmaterialsna/wd12/1",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Tinder",
+   "ats": "lever",
+   "id": "matchgroup",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "TJX",
+   "ats": "workday",
+   "id": "tjx/wd1/tjx_external",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "TMS",
+   "ats": "smartrecruiters",
+   "id": "TMSLLC",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "TMX Group",
+   "ats": "workday",
+   "id": "tmx/wd3/TMX_Careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Tonal",
+   "ats": "ashby",
+   "id": "tonal",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Torc Robotics",
+   "ats": "greenhouse",
+   "id": "torcrobotics",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Trackforce",
+   "ats": "lever",
+   "id": "tracktik",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "TradingHub",
+   "ats": "ashby",
+   "id": "tradinghub",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Trend Micro",
+   "ats": "workday",
+   "id": "trendmicro/wd3/External",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "TribalScale",
+   "ats": "greenhouse",
+   "id": "tribalscale",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Trimble",
+   "ats": "workday",
+   "id": "trimble/wd1/TrimbleCareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "TripArc",
+   "ats": "greenhouse",
+   "id": "triparc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "TRIUMF",
+   "ats": "workday",
+   "id": "triumf/wd10/careers-at-triumf-job-postings",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "TRM Labs",
+   "ats": "ashby",
+   "id": "trm-labs",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "TSMG",
+   "ats": "lever",
+   "id": "tsmg",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Tubi",
+   "ats": "greenhouse",
+   "id": "tubitv",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Turner & Townsend",
+   "ats": "smartrecruiters",
+   "id": "TurnerTownsend",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Two Circles",
+   "ats": "workable",
+   "id": "twocircles",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "UAP",
+   "ats": "smartrecruiters",
+   "id": "UAPInc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Uber Freight",
+   "ats": "greenhouse",
+   "id": "uberfreight",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Uhaul",
+   "ats": "workday",
+   "id": "uhaul/wd1/UhaulJobs",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "UiPath",
+   "ats": "ashby",
+   "id": "uipath",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "UJET",
+   "ats": "greenhouse",
+   "id": "ujet",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Ultra",
+   "ats": "workday",
+   "id": "ultra/wd3/ultra-careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Uncountable",
+   "ats": "ashby",
+   "id": "uncountable",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Unilever",
+   "ats": "workday",
+   "id": "unilever/wd3/Unilever_Experienced_Professionals",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "University Health Network",
+   "ats": "smartrecruiters",
+   "id": "UniversityHealthNetwork",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "University of British Columbia",
+   "ats": "workday",
+   "id": "ubc/wd10/ubcstaffjobs",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "University of Ottawa",
+   "ats": "workday",
+   "id": "uottawa/wd3/uOttawa_External_Career_Site",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "USM Business Systems",
+   "ats": "smartrecruiters",
+   "id": "USM2",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Validus Risk Management",
+   "ats": "workable",
+   "id": "validus-risk-management",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Valsoft Corporation",
+   "ats": "workable",
+   "id": "valsoft-corp",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Vanderlande Industries",
+   "ats": "workday",
+   "id": "vanderlande/wd3/careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Vanta",
+   "ats": "ashby",
+   "id": "vanta",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Varian",
+   "ats": "workday",
+   "id": "onehealthineers/wd3/SHSJB",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Veeva Systems",
+   "ats": "lever",
+   "id": "veeva",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "VEGA Americas",
+   "ats": "greenhouse",
+   "id": "vegaamericas",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Veolia",
+   "ats": "smartrecruiters",
+   "id": "VeoliaEnvironnementSA",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Veralto",
+   "ats": "workday",
+   "id": "veralto/wd1/hachjobs",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "VersaFile",
+   "ats": "bamboohr",
+   "id": "versafile1",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Versapay",
+   "ats": "lever",
+   "id": "versapay",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Very Good Security",
+   "ats": "lever",
+   "id": "verygoodsecurity",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Viewline Ventures",
+   "ats": "workable",
+   "id": "viewline-ventures",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Viridien",
+   "ats": "workday",
+   "id": "cgg/wd103/viridiencareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Visier Solutions",
+   "ats": "greenhouse",
+   "id": "visiersolutionsinc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "VML",
+   "ats": "greenhouse",
+   "id": "map",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Voldex",
+   "ats": "ashby",
+   "id": "voldex",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Voltus",
+   "ats": "lever",
+   "id": "voltus",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "vTech Solution",
+   "ats": "smartrecruiters",
+   "id": "VTechSolution1",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Vusion",
+   "ats": "smartrecruiters",
+   "id": "VusionGroupSA",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Wabtec",
+   "ats": "smartrecruiters",
+   "id": "Wabtec",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Walmart",
+   "ats": "workday",
+   "id": "walmart/wd504/WalmartExternal",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Warner Bros.",
+   "ats": "workday",
+   "id": "warnerbros/wd5/global",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Watts Water",
+   "ats": "workday",
+   "id": "wattswater/wd5/external",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Watts Water",
+   "ats": "workday",
+   "id": "wattswater/wd5/Intern-External",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "We Are Social",
+   "ats": "workable",
+   "id": "we-are-social-1",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Welo Global",
+   "ats": "lever",
+   "id": "weloglobal",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Whc",
+   "ats": "rippling",
+   "id": "whc",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Wing Assistant",
+   "ats": "lever",
+   "id": "getwingapp",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Wood Mackenzie",
+   "ats": "workday",
+   "id": "woodmac/wd3/woodmaccareers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Workstream",
+   "ats": "greenhouse",
+   "id": "workstream",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "WPP Media",
+   "ats": "greenhouse",
+   "id": "wppmedia",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "xAI",
+   "ats": "greenhouse",
+   "id": "xai",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Xero",
+   "ats": "ashby",
+   "id": "xero",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Xsolla",
+   "ats": "lever",
+   "id": "xsolla",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Xylem",
+   "ats": "workday",
+   "id": "xylem/wd5/xylem-careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Yotta Labs",
+   "ats": "ashby",
+   "id": "yotta",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Zaber Technologies",
+   "ats": "workable",
+   "id": "zaber",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Zebra Technologies",
+   "ats": "workday",
+   "id": "zebra/wd501/Zebra_careers",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Zen Educate",
+   "ats": "lever",
+   "id": "zeneducate",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Zilch",
+   "ats": "ashby",
+   "id": "zilch",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Zip",
+   "ats": "ashby",
+   "id": "zip",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Zscaler",
+   "ats": "greenhouse",
+   "id": "zscaler",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "Zuru",
+   "ats": "ashby",
+   "id": "zuru",
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+  },
+  {
+   "name": "SimplifyJobs new-grad list",
+   "ats": "simplify",
+   "id": "SimplifyJobs/New-Grad-Positions",
+   "every_minutes": 60,
+   "note": "crowd-maintained new-grad list on GitHub (13 MB, so hourly)"
+  },
+  {
+   "name": "Job Bank",
+   "ats": "jobbank",
+   "id": "jobbank.gc.ca",
+   "note": "Government of Canada job board: small employers"
+  },
+  {
+   "name": "Google",
+   "ats": "google",
+   "id": "google",
+   "note": "Toronto/Waterloo/Montreal/Kitchener"
+  },
+  {
+   "name": "IBM",
+   "ats": "ibm",
+   "id": "ibm",
+   "note": "Markham/Ottawa/Toronto"
+  },
+  {
+   "name": "Atlassian",
+   "ats": "atlassian",
+   "id": "atlassian",
+   "note": "remote Canada + grad program"
+  },
+  {
+   "name": "Shopify",
+   "ats": "shopify",
+   "id": "shopify",
+   "note": "Canadian HQ, remote-first"
+  },
+  {
+   "name": "EY Canada",
+   "ats": "successfactors_search",
+   "id": "careers.ey.com|canada",
+   "note": "Big 4"
+  },
+  {
+   "name": "Deloitte Canada",
+   "ats": "successfactors",
+   "id": "careers.deloitte.ca",
+   "note": "Big 4"
+  },
+  {
+   "name": "Bell",
+   "ats": "successfactors",
+   "id": "jobs.bce.ca",
+   "note": "Canadian HQ"
+  },
+  {
+   "name": "Qualcomm",
+   "ats": "eightfold",
+   "id": "qualcomm.eightfold.ai|qualcomm.com",
+   "note": "Markham/Toronto (hourly: rate-limits 15-min polling)",
+   "every_minutes": 60
+  },
+  {
+   "name": "Accenture",
+   "ats": "workday",
+   "id": "accenture/wd103/AccentureCareers",
+   "note": "big company, added 2026-09-26"
+  },
+  {
+   "name": "Samsung",
+   "ats": "workday",
+   "id": "sec/wd3/Samsung_Careers",
+   "note": "big company, added 2026-09-26"
+  },
+  {
+   "name": "Visa",
+   "ats": "workday",
+   "id": "visa/wd5/Visa",
+   "note": "big company, added 2026-09-26"
+  },
+  {
+   "name": "Aviva",
+   "ats": "workday",
+   "id": "aviva/wd1/External",
+   "note": "big company, added 2026-09-26"
+  },
+  {
+   "name": "Palo Alto Networks",
+   "ats": "workday",
+   "id": "paloaltonetworks/wd5/panwexternalcareers",
+   "note": "big company, added 2026-09-26"
+  },
+  {
+   "name": "BlackRock",
+   "ats": "workday",
+   "id": "blackrock/wd1/BlackRock_Professional",
+   "note": "big company, added 2026-09-26"
+  },
+  {
+   "name": "BlackRock (early careers)",
+   "ats": "workday",
+   "id": "blackrock/wd1/BlackRock_Early_Careers_Program",
+   "note": "big company, added 2026-09-26"
+  },
+  {
+   "name": "Salesforce (new grad)",
+   "ats": "workday",
+   "id": "salesforce/wd12/Futureforce_NewGradRoles",
+   "note": "big company, added 2026-09-26"
+  },
+  {
+   "name": "JP Morgan Chase",
+   "ats": "oracle",
+   "id": "jpmc.fa.oraclecloud.com|CX_1001",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Nokia",
+   "ats": "oracle",
+   "id": "fa-evmr-saasfaprod1.fa.ocs.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "American Express",
+   "ats": "oracle",
+   "id": "egug.fa.us2.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Vertiv",
+   "ats": "oracle",
+   "id": "egup.fa.us2.oraclecloud.com|CX",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Emerson Electric",
+   "ats": "oracle",
+   "id": "hdjq.fa.us2.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Texas Instruments",
+   "ats": "oracle",
+   "id": "edbz.fa.us2.oraclecloud.com|CX",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Oracle",
+   "ats": "oracle",
+   "id": "eeho.fa.us2.oraclecloud.com|CX_45001",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Cummins",
+   "ats": "oracle",
+   "id": "fa-espx-saasfaprod1.fa.ocs.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Honeywell",
+   "ats": "oracle",
+   "id": "ibqbjb.fa.ocs.oraclecloud.com|Honeywell",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Coherent",
+   "ats": "oracle",
+   "id": "hcwp.fa.us2.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "BNY",
+   "ats": "oracle",
+   "id": "eofe.fa.us2.oraclecloud.com|CX_1001",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "EXL",
+   "ats": "oracle",
+   "id": "fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com|CX_2",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "WSP",
+   "ats": "oracle",
+   "id": "emit.fa.ca3.oraclecloud.com|CX_2001",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "onsemi",
+   "ats": "oracle",
+   "id": "hctz.fa.us2.oraclecloud.com|CX_1001",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Howmet Aerospace",
+   "ats": "oracle",
+   "id": "fa-exty-saasfaprod1.fa.ocs.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Arcadis",
+   "ats": "oracle",
+   "id": "ebcs.fa.em2.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Fortive",
+   "ats": "oracle",
+   "id": "ejta.fa.us6.oraclecloud.com|CX_2001",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Seaspan",
+   "ats": "oracle",
+   "id": "hckz.fa.us2.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Fortinet",
+   "ats": "oracle",
+   "id": "edel.fa.us2.oraclecloud.com|CX_2001",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Ford Motor Company",
+   "ats": "oracle",
+   "id": "efds.fa.em5.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Stantec",
+   "ats": "oracle",
+   "id": "hdhl.fa.us6.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Hologic",
+   "ats": "oracle",
+   "id": "ebwb.fa.us2.oraclecloud.com|CX",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "UL Solutions",
+   "ats": "oracle",
+   "id": "fa-eups-saasfaprod1.fa.ocs.oraclecloud.com|ULSolutionsCareers",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "WTW",
+   "ats": "oracle",
+   "id": "eedu.fa.em3.oraclecloud.com|CX_1003",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Definity Financial",
+   "ats": "oracle",
+   "id": "hdks.fa.ca2.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Dell Technologies",
+   "ats": "oracle",
+   "id": "iawmqy.fa.ocs.oraclecloud.com|careers",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "DNV",
+   "ats": "oracle",
+   "id": "ecyq.fa.em2.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Chubb",
+   "ats": "oracle",
+   "id": "fa-ewgu-saasfaprod1.fa.ocs.oraclecloud.com|CX_2001",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Sherwin-Williams",
+   "ats": "oracle",
+   "id": "ejhp.fa.us6.oraclecloud.com|CX_2",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Ralliant",
+   "ats": "oracle",
+   "id": "ibwujb.fa.ocs.oraclecloud.com|CX_1001",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "NOV",
+   "ats": "oracle",
+   "id": "egay.fa.us6.oraclecloud.com|CX_4001",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "GHD",
+   "ats": "oracle",
+   "id": "ejov.fa.ca2.oraclecloud.com|CX",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Cooper Companies",
+   "ats": "oracle",
+   "id": "hcjy.fa.us2.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "ATCO",
+   "ats": "oracle",
+   "id": "eezy.fa.ca2.oraclecloud.com|CX",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Verisk",
+   "ats": "oracle",
+   "id": "fa-ewmy-saasfaprod1.fa.ocs.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Jefferies",
+   "ats": "oracle",
+   "id": "hdid.fa.us2.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Denso",
+   "ats": "oracle",
+   "id": "hcwt.fa.us2.oraclecloud.com|CX",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "SCOR",
+   "ats": "oracle",
+   "id": "fa-errt-saasfaprod1.fa.ocs.oraclecloud.com|CX_2001",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "CSX",
+   "ats": "oracle",
+   "id": "fa-eowa-saasfaprod1.fa.ocs.oraclecloud.com|CSXCareers",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Marriott International",
+   "ats": "oracle",
+   "id": "ejwl.fa.us2.oraclecloud.com|CX",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "HEXAWARE",
+   "ats": "oracle",
+   "id": "fa-etqo-saasfaprod1.fa.ocs.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Pearson",
+   "ats": "oracle",
+   "id": "hccz.fa.em3.oraclecloud.com|CX_2",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Akamai Technologies",
+   "ats": "oracle",
+   "id": "fa-extu-saasfaprod1.fa.ocs.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "American Bureau of Shipping",
+   "ats": "oracle",
+   "id": "hbbq.fa.us2.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Diebold Nixdorf",
+   "ats": "oracle",
+   "id": "eeug.fa.us6.oraclecloud.com|CX",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "S&C Electric Company",
+   "ats": "oracle",
+   "id": "ejia.fa.us6.oraclecloud.com|CX_1001",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Newmark Group",
+   "ats": "oracle",
+   "id": "hdow.fa.us6.oraclecloud.com|CX_1001",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Powell",
+   "ats": "oracle",
+   "id": "ekcf.fa.us6.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "EXP",
+   "ats": "oracle",
+   "id": "elcn.fa.us2.oraclecloud.com|CX",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Citco",
+   "ats": "oracle",
+   "id": "fa-euxc-saasfaprod1.fa.ocs.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Photon",
+   "ats": "oracle",
+   "id": "fa-ertb-saasfaprod1.fa.ocs.oraclecloud.com|CX_2",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "BGIS",
+   "ats": "oracle",
+   "id": "fa-evcg-saasfaprod1.fa.ocs.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Carmeuse",
+   "ats": "oracle",
+   "id": "ekiz.fa.em2.oraclecloud.com|CX",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Williams-Sonoma",
+   "ats": "oracle",
+   "id": "ehac.fa.us6.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Standard Aero",
+   "ats": "oracle",
+   "id": "cva.fa.us1.oraclecloud.com|CX_3",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Computershare",
+   "ats": "oracle",
+   "id": "fa-evdq-saasfaprod1.fa.ocs.oraclecloud.com|CX_2001",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Waste Management",
+   "ats": "oracle",
+   "id": "emcm.fa.us2.oraclecloud.com|WMCareers",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Clean Harbors",
+   "ats": "oracle",
+   "id": "epyc.fa.us2.oraclecloud.com|CX_1001",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Hilton Worldwide",
+   "ats": "oracle",
+   "id": "efet.fa.us2.oraclecloud.com|CX_1009",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "CSC",
+   "ats": "oracle",
+   "id": "hczw.fa.us2.oraclecloud.com|CX_1001",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "DP World",
+   "ats": "oracle",
+   "id": "ehpv.fa.em2.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Kroll",
+   "ats": "oracle",
+   "id": "hcxs.fa.us2.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Zensar",
+   "ats": "oracle",
+   "id": "fa-etvl-saasfaprod1.fa.ocs.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "CooperSurgical",
+   "ats": "oracle",
+   "id": "hcjy.fa.us2.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Metrolinx",
+   "ats": "oracle",
+   "id": "ehtc.fa.ca2.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "ADI Global Distribution",
+   "ats": "oracle",
+   "id": "ehtl.fa.us6.oraclecloud.com|CX_2",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Ritchie Bros.",
+   "ats": "oracle",
+   "id": "fa-exew-saasfaprod1.fa.ocs.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Acosta Group",
+   "ats": "oracle",
+   "id": "eczy.fa.us2.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Wood",
+   "ats": "oracle",
+   "id": "ehif.fa.em2.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Mauser Packaging Solutions",
+   "ats": "oracle",
+   "id": "hdpn.fa.us6.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Linamar",
+   "ats": "oracle",
+   "id": "fa-epmd-saasfaprod1.fa.ocs.oraclecloud.com|CX_3001",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Staples",
+   "ats": "oracle",
+   "id": "fa-exhh-saasfaprod1.fa.ocs.oraclecloud.com|StaplesInc",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "RH",
+   "ats": "oracle",
+   "id": "hcqq.fa.us2.oraclecloud.com|CX_5004",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Weatherford",
+   "ats": "oracle",
+   "id": "fa-exmi-saasfaprod1.fa.ocs.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Coherent",
+   "ats": "oracle",
+   "id": "hcwp.fa.us2.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Strathcona County",
+   "ats": "oracle",
+   "id": "fa-erjf-saasfaprod1.fa.ocs.oraclecloud.com|CX_1",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "Samsonite",
+   "ats": "oracle",
+   "id": "ekkf.fa.em2.oraclecloud.com|CX",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "BC Pensions",
+   "ats": "oracle",
+   "id": "fa-exby-saasfaprod1.fa.ocs.oraclecloud.com|CX_1013",
+   "note": "Oracle Recruiting Cloud, has Canadian postings"
+  }
+ ]
+}
