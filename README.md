@@ -1,113 +1,151 @@
-# job-watcher
+# 💼 Job Posting Watcher
 
-Push alerts to my phone within ~15 minutes of an **entry-level / new-grad tech job in Canada** being
-posted, read straight from each company's own hiring system (the same place their careers page gets
-data from), so alerts often arrive before the job shows up on LinkedIn/Indeed.
+Pushes a phone alert within ~15 minutes of an **entry-level tech job in Canada** being posted,
+by reading **~930 employers' hiring systems directly** (the same data their careers pages show),
+so alerts often land before the job reaches LinkedIn or Indeed. A private web app ranks every
+open job against my resume and tracks each application from "applied" to "offer".
 
-- **~840 employers across 13 hiring systems, plus 2 job boards.** Big names (RBC, TD, CIBC, BMO,
-  Scotiabank, Rogers, TELUS, Manulife, Sun Life, Desjardins, CAE, Amazon, Microsoft, AMD, NVIDIA,
-  ...) and hundreds of smaller ones (Genetec, Clio, Jonas, Intelerad, Telesat, Mirego, VersaFile, ...).
-  Hiring systems: Workday, Greenhouse, Lever, Ashby, SmartRecruiters, Workable, Rippling, BambooHR,
-  Recruitee, Amazon, Jibe/iCIMS, Eightfold, SAP SuccessFactors RSS.
-- **Two job boards:** Canada's **Job Bank** (small employers) and the crowd-maintained
-  **SimplifyJobs new-grad list** on GitHub (hourly). If a job shows up both there and on the
-  company's own board, you get one alert, using the company's own link.
-- **How the list was built:** ~4,200 company feeds were pulled from every link in the SimplifyJobs
-  new-grad + internship lists, each one was probed live, and the 741 with Canadian postings (now or
-  historically) were added automatically. 4 staffing agencies are included but disabled.
-- **Filters** ([filters.py](filters.py)): tech title (English + French), not senior/lead/manager/III+,
-  no intern/co-op/student, in Canada, and the description asks for at most `MAX_YEARS` (2) years.
-  ⭐ + max priority when the title/description says new grad / entry level / junior / "I" / 2027.
-- **No alert spam:** a company's first scan saves its open jobs silently. After that, only
-  never-seen jobs posted in the last 3 days alert, capped at 15 per run.
-- **Morning (8:05) and night (21:05) digest** of everything matched, plus a warning when a feed
-  has been failing for 6 scans in a row (i.e. the company moved its careers site).
+**Status:** ✅ live on AWS Lambda, scanning every 15 minutes at **~$0/month**. All numbers below
+were measured on the deployed system.
 
-## Start date: May 2027 or later
+<p>
+  <img src="docs/web-desktop.png" alt="Web app: open jobs ranked by resume fit, filtered to confirmed 2027 starts" width="68%">
+  <img src="docs/web-phone.png" alt="Web app on a phone in dark mode" width="28%">
+</p>
 
-I graduate in April 2027, so every match is sorted by start date (`filters.start_verdict`):
-- **✓ 2027 start**: a 2027 title, a new-grad program, "class of 2027", or a start from May 2027. Ranked first (+10 fit), always alert.
-- **Wants a start before May 2027**: "ASAP", "immediate start", a start in 2026 or Jan–Apr 2027,
-  a fixed-term contract, or "must have completed a degree". Hidden and never alert.
-- **Start date not stated**: shown on the page and in digests, but only buzzes the phone from
-  `UNCLEAR_ALERTS_FROM` (Feb 1, 2027), when a normal hire could realistically start in May.
+---
 
-## Web UI
+## 🎯 Why
+New-grad roles are often reviewed as applications arrive, so the first days after a posting
+matter. Checking dozens of careers pages by hand every day doesn't scale, and job boards
+lag behind the employers' own systems. This watches the source instead.
 
-Every open match on one page: **Apply ↗** opens the posting (and then asks whether you applied),
-**✓ Applied** / **Hide** keep the list clean, and there's search, a ⭐ entry-level filter, a
-"posted within" filter and a NEW badge for anything that appeared since your last visit.
-Works on a phone (bookmark it / add to home screen) and follows your light/dark setting.
-
-- Locally: `python3 watcher.py serve`, then open http://localhost:8765
-- On AWS: `deploy.sh` prints a link (and sends it to your phone). The link carries a secret key
-  (`?k=...`); without it the page returns 403. Applied/Hide marks are saved in S3, so phone and
-  laptop agree.
-
-## Use
-
-```bash
-python3 watcher.py scan --dry-run   # see what it would alert, touches nothing
-python3 watcher.py serve            # web UI on http://localhost:8765
-python3 watcher.py recent [days]    # open matches posted in the last N days (default 30)
-python3 watcher.py test-notify      # ping your phone
+## ⚙️ How it works
+```
+EventBridge Scheduler (every 15 min) -> Lambda: scan
+    ├─ 21 source adapters, 16 threads  -> ~64,000 postings from ~930 employers in < 1 min
+    ├─ new job IDs only (SQLite remembers every ID ever seen)
+    ├─ filters: tech title · not senior · not intern/co-op · in Canada · ≤ 2 yrs · start date
+    ├─ fit score vs. resume, cross-feed de-duplication, closed-posting detection
+    └─ ntfy push alert  (⭐ = explicit new grad / 2027 start)
+EventBridge Scheduler (8:05 / 21:05 Toronto) -> Lambda: digest + follow-up reminders
+Lambda function URL (?k=<secret>)             -> web app: rank, apply, track
+S3                                            -> jobs.db (SQLite) + status.json (applications)
 ```
 
-Phone: install the **ntfy** app and subscribe to the topic in `config.env`.
+## 🔌 Sources: 21 adapters, ~930 employers
 
-## Run it
+| Hiring system | Employers | Examples |
+|---|---:|---|
+| Workday | 264 | RBC, TD, CIBC, BMO, Manulife, Sun Life, CAE, NVIDIA, Salesforce, Accenture |
+| Greenhouse | 186 | Stripe, Databricks, Cloudflare, Geotab, Faire, Instacart |
+| Ashby | 144 | Wealthsimple, Cohere, 1Password, Neo Financial, Jobber, OpenAI |
+| SmartRecruiters | 92 | Ubisoft, ServiceNow, Intelerad |
+| Oracle Recruiting Cloud | 78 | JPMorgan, Nokia, Fortinet, Honeywell, Ford, Texas Instruments |
+| Lever | 73 | PointClickCare, Waabi, Wattpad, Palantir |
+| Rippling · Workable · BambooHR · Recruitee | 78 | Genetec, Valsoft, VersaFile, D-Wave |
+| SAP SuccessFactors (RSS + search) | 6 | Scotiabank, Rogers, TELUS, Bell, Deloitte Canada, EY Canada |
+| Custom sites | 8 | Google, Microsoft & Qualcomm (Eightfold), IBM, Amazon, AMD (Jibe), Atlassian, Shopify |
+| Job boards | 2 | Canada's Job Bank, the SimplifyJobs new-grad list |
 
-- **AWS (always on):** `./deploy.sh`: Terraform in [infra/](infra/) creates a Python 3.12 Lambda,
-  EventBridge Scheduler (scan every 15 min, digests in America/Toronto time), an S3 bucket holding
-  `jobs.db`, and least-privilege IAM. It fits in the Lambda always-free tier; S3 costs a few cents a
-  month at most. It uploads the local `jobs.db` first and removes the local cron line.
-- **Local fallback:** cron `*/15` scan + `5 8,21` digest (WSL has to be running).
-- A full scan is ~70k postings in ~55 s and ~600 MB of memory (the Lambda gets 1 GB).
+**How the list was built:** ~4,200 hiring-system links were mined from public new-grad lists,
+each was probed live, and the **741 employers with Canadian postings** were added automatically.
+Another 78 came from probing 184 Oracle Recruiting Cloud sites. Staffing agencies are included
+but disabled because they flood alerts with reposts.
 
-## Cost: $0
+## 🧹 Filtering
+1. **Tech title** (English and French): software, data, ML/AI, cloud, DevOps, security, QA, IT…
+2. **Not senior** (senior, staff, lead, manager, III+, "Premier conseiller"…) and **not student**
+   (intern, co-op, stagiaire, "Summer Analyst", 8-month terms…).
+3. **In Canada:** structured country fields when a source has them, otherwise location parsing
+   that won't confuse Burlington, ON with Burlington, MA.
+4. **Experience:** the smallest "N years of experience" in the description must be ≤ 2.
+5. **Start date** (I graduate April 2027):
+   - ✓ **2027 start:** a 2027 title, a new-grad program, "class of 2027", a start from May 2027. Ranked first, always alerts.
+   - ✗ **Wants a start before May 2027:** ASAP, immediate start, fixed-term contracts, January starts. Hidden, never alerts.
+   - **Not stated:** shown on the page and in digests; phone alerts begin February 2027.
+
+## ⭐ Fit score
+`fit.py` scores each job 0–100 against the skills on my resume (Python, AWS, Terraform, React,
+security, PyTorch/RAG, testing…) plus title family, experience asked, and commute distance from
+Hamilton. It's plain keyword scoring, so it's free and explainable: every card shows which skills
+matched, and flags like *French required*, *Clearance* or *PhD*.
+
+## 🖥️ Web app
+- **Apply ↗** opens the posting, then asks whether you applied.
+- **My applications:** stages (applied → online assessment → interview → offer / rejected / no response),
+  notes, and a follow-up nudge in the morning digest after 14 days without an update.
+- **Referral shortcuts:** McMaster alumni and recruiters at the company on LinkedIn, salary and reviews.
+- Search, "Best fit" / "Newest" sort, start-date and posted-within filters, NEW badges since your last visit.
+- Works on a phone, follows light/dark mode. Gated by a secret key in the URL (403 without it).
+
+## ☁️ AWS and cost
+Provisioned with Terraform (`infra/main.tf`): one Python 3.12 Lambda (1 GB), EventBridge Scheduler
+(15-minute scans and digests in Toronto time), an S3 bucket, a function URL, and least-privilege
+IAM scoped to two S3 objects and one log group. Measured: a scan takes ~56 s and peaks at ~680 MB.
 
 | Piece | Monthly use | Free allowance | Cost |
 |---|---|---|---|
-| Lambda (1 GB, ~60 s scan every 15 min) | ~175,000 GB-s, ~3,000 runs | 400,000 GB-s + 1M requests, **always free** | $0 |
-| EventBridge Scheduler | ~3,000 triggers | 14M/month, always free | $0 |
-| S3 storage (jobs.db ~30 MB) | 0.03 GB | $0.023/GB | < $0.001 |
-| S3 writes (hourly + on alert) | ~900 PUTs | $0.005 per 1,000 | ~$0.005 (AWS rounds to $0.00) |
-| CloudWatch Logs (14-day retention) | a few MB | 5 GB always free | $0 |
-| ntfy.sh, GitHub, Job Bank | | free | $0 |
+| Lambda | ~160,000 GB-s | 400,000 GB-s, always free | $0 |
+| EventBridge Scheduler | ~3,000 runs | 14 million, always free | $0 |
+| S3 writes | ~900 PUTs | not free | ~$0.005 (rounds to $0) |
+| CloudWatch Logs (14-day retention) | a few MB | 5 GB, always free | $0 |
 
-The only item not in an always-free allowance is S3 write requests, which is why jobs.db is written
-back hourly instead of every 15 minutes (every scan would be ~$0.03/month). Set `budget_email` in
-`infra/terraform.tfvars` to get an email if the forecast bill ever passes $1 (AWS budgets are free).
-Running it locally with cron costs nothing, but only works while the laptop and WSL are on.
+S3 writes are the only paid item, so the database is saved hourly or right after an alert instead
+of every scan (every scan would be ~$0.03/month).
 
-## Add a company
+## 🚀 Setup
+Python 3.10+ standard library only; no `pip install` needed.
+```bash
+cp config.env.example config.env        # set JOBS_NTFY_TOPIC, then subscribe to it in the ntfy app
+python3 watcher.py scan --dry-run      # what it would alert on, touches nothing
+python3 watcher.py scan                # first run per company saves silently; later runs alert
+python3 watcher.py serve               # web app on http://localhost:8765
+python3 watcher.py recent 7            # open matches from the last 7 days, in the terminal
+python3 watcher.py test-notify         # check your phone gets alerts
+```
+**Deploy to AWS** (Terraform + AWS CLI configured):
+```bash
+printf 'ntfy_topic = "your-topic"\n' > infra/terraform.tfvars
+./deploy.sh      # creates everything, uploads state, sends the web app link to your phone
+```
 
-Find which hiring system its careers page uses (the job links give it away: `myworkdayjobs.com`,
-`greenhouse.io`, `jobs.lever.co`, `ashbyhq.com`, ...) and add a line to [companies.json](companies.json).
-Workday ids are `tenant/wdN/site` from `https://tenant.wdN.myworkdayjobs.com/site`.
+**Add a company:** find which hiring system its careers page uses (job links give it away:
+`myworkdayjobs.com`, `greenhouse.io`, `jobs.lever.co`, `ashbyhq.com`…) and add a line to
+`companies.json`. Workday ids are `tenant/wdN/site` from `https://tenant.wdN.myworkdayjobs.com/site`.
 
-## Bugs found while validating against live data
+## 🐛 Real bugs found by validating against live data
+- **Pinned postings hid every new TD job.** TD pins ~50 old postings above its date-sorted
+  Workday list, so "stop paging at an all-seen page" never reached new jobs. Fixed by paging
+  until the date-sorted section starts.
+- **A SQLite lock leak froze scans for an hour.** A thread that failed mid-transaction kept the
+  write lock. Fixed with one short, always-closed transaction per company, serialized writes,
+  WAL mode, and a lock so only one scan runs at a time.
+- **The first scan hid still-open jobs** (e.g. a Stripe new-grad role posted 26 days earlier);
+  the first-scan window is now 45 days.
+- **Loose words matched the wrong jobs:** "Flight *Information* Region" (air traffic control)
+  matched a pattern meant for *informatique*; French *sécurité* also means workplace safety;
+  "Assurance auto*mobile*" matched *mobile*; Burlington, MA and Hamilton, NJ counted as Canada.
+  Every fix was checked against each job it reclassified. One pass dropped 101 jobs and 3 real
+  roles were restored.
+- Microsoft's API rate-limits bursts, so requests back off and retry, and Microsoft/Qualcomm are polled hourly.
 
-1. **Workday pinned postings hid every new TD job.** TD pins ~50 old postings above its
-   date-sorted list, so "stop paging when a page is all seen" stopped before ever reaching new jobs.
-   Fixed by paging until the date-sorted part is reached (ages drop from 3+ days to 0–1 days).
-2. **False positives on the first real scan:** bank "Networking Event" listings, "*Mobile* Financial
-   Services Representative", "Financial *security* advisor", a bodyguard role titled "Security
-   advisor", Amazon loss prevention, and a CAE intern role missed because its title misspells
-   *stagiaire* as "Stagaire". All added to the filters.
-3. Microsoft's API rate-limits bursts (HTTP 429), so requests now retry with backoff.
-4. **The first scan hid still-open jobs**, e.g. Stripe's Toronto new-grad role posted 26 days
-   earlier. The window is now 45 days, and `recent` shows each job's posted date.
-5. **Loose words after adding 740 companies:** "Flight *Information* Region" (air traffic control)
-   hit the pattern meant for *informatique*, French *sécurité* also means workplace safety, and
-   "AVP" / "Premier conseiller" are senior titles. Tightening those wrongly dropped 9 real roles
-   (Forward Deployed Engineer, GIS, Guidewire, bioinformatics), which were added back after
-   checking every reclassified job by hand.
-6. Some Walmart Workday postings have no link path, which crashed that feed; those are skipped now.
+## ⚠️ Known limits
+- Not covered: Apple (private API), Meta and Tesla (bot protection), Uber, SAP, Kinaxis, OpenText, CGI.
+- SuccessFactors RSS returns only the 20 newest postings, fine at a 15-minute cadence.
+- Fit scoring and start-date detection are keyword/regex-based: they can't tell a required
+  skill from a nice-to-have.
+- Closed postings are detected on feeds that return a whole board, plus a daily check for Workday;
+  elsewhere a job drops off after 45 days.
 
-## Known gaps
-
-Shopify, Google, Apple, Meta, Qualcomm and Bell use custom or bot-protected sites and aren't
-covered. SuccessFactors RSS only returns the 20 newest jobs, fine at a 15-minute cadence.
-The years filter reads the *smallest* "N years of experience" in a description, so a job saying
-"5 years, or 2 with a Master's" might be kept or dropped depending on wording.
+## 🗂️ Layout
+| File | What's in it |
+|---|---|
+| `sources.py` | the 21 adapters, one per hiring system or site |
+| `filters.py` | tech / seniority / student / Canada / experience / start-date rules |
+| `fit.py` | resume-fit scoring |
+| `watcher.py` | scan, alerts, digests, follow-ups, CLI |
+| `webui.py` | the web app (single page, no build step) |
+| `lambda_function.py` | Lambda entry point: S3 sync, schedules, function URL |
+| `infra/main.tf`, `deploy.sh` | AWS infrastructure and one-command deploy |
+| `companies.json` | the employer list |
