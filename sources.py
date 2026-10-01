@@ -6,6 +6,7 @@ details(company, job) -> fills in description/locations; only called for new,
 """
 import html
 import json
+import random
 import re
 import time
 import urllib.error
@@ -15,6 +16,25 @@ from datetime import datetime, timezone
 
 UA = "Mozilla/5.0 (job-watcher; personal job alerts)"
 TIMEOUT = 25
+RETRIES = 3
+
+
+def fetch(req):
+    """Every request goes through here, so every hiring system gets the same polite retry:
+    back off on rate limits / flaky servers, give up at once on real errors (404 etc.)."""
+    for attempt in range(RETRIES):
+        try:
+            with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
+                return r.read()
+        except urllib.error.HTTPError as e:
+            if e.code not in (429, 500, 502, 503, 504) or attempt == RETRIES - 1:
+                raise
+            try:
+                wait = int(e.headers.get("Retry-After") or 0)
+            except ValueError:  # Retry-After may also be an HTTP date
+                wait = 0
+            # jitter so 16 threads (and everyone else's top-of-the-hour cron) don't retry in step
+            time.sleep(min(wait, 45) or 8 * (attempt + 1) + random.uniform(0, 4))
 
 
 def http_json(url, body=None):
@@ -23,16 +43,7 @@ def http_json(url, body=None):
     if body is not None:
         data = json.dumps(body).encode()
         headers["Content-Type"] = "application/json"
-    req = urllib.request.Request(url, data=data, headers=headers)
-    for attempt in range(3):
-        try:
-            with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
-                return json.load(r)
-        except urllib.error.HTTPError as e:
-            # back off on rate limits / flaky servers; give up on real errors (404 etc.)
-            if e.code not in (429, 500, 502, 503, 504) or attempt == 2:
-                raise
-            time.sleep(int(e.headers.get("Retry-After") or 0) or 10 * (attempt + 1))
+    return json.loads(fetch(urllib.request.Request(url, data=data, headers=headers)))
 
 
 def strip_html(s):
@@ -271,8 +282,7 @@ def successfactors_list(c):
     from email.utils import parsedate_to_datetime
     req = urllib.request.Request(f'https://{c["id"]}/services/rss/job/?locale=en_US&keywords=&sortColumn=referencedate&sortDirection=desc',
                                  headers={"User-Agent": BROWSER_UA, "Accept": "application/rss+xml,application/xml;q=0.9,*/*;q=0.8"})
-    with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
-        root = ET.fromstring(r.read())
+    root = ET.fromstring(fetch(req))
     out = []
     for it in root.iter("item"):
         title = (it.findtext("title") or "").strip()
@@ -388,8 +398,7 @@ def jobbank_list(c):
         req = urllib.request.Request(
             "https://www.jobbank.gc.ca/jobsearch/feed/jobSearchRSSfeed?sort=D&searchstring=" + urllib.parse.quote_plus(q),
             headers={"User-Agent": UA, "Accept": "application/rss+xml,application/xml,text/xml,*/*"})
-        with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
-            root = ET.fromstring(r.read())
+        root = ET.fromstring(fetch(req))
         for e in root.findall("a:entry", ns):
             link = e.find("a:link", ns).get("href")
             summ = strip_html(e.findtext("a:summary", "", ns))
@@ -405,8 +414,7 @@ def jobbank_list(c):
 
 def jobbank_details(c, j):
     req = urllib.request.Request(j["url"], headers={"User-Agent": UA, "Accept": "text/html"})
-    with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
-        j["description"] = strip_html(r.read().decode("utf-8", "replace"))[:20000]
+    j["description"] = strip_html(fetch(req).decode("utf-8", "replace"))[:20000]
 
 
 # ---------------------------------------------------------------- Oracle Recruiting Cloud (JPMorgan, Nokia, Amex, Oracle, ...)
@@ -450,8 +458,7 @@ def http_text(url, headers=None, body=None):
         data = json.dumps(body).encode()
         h["Content-Type"] = "application/json"
     req = urllib.request.Request(url, data=data, headers=h)
-    with urllib.request.urlopen(req, timeout=TIMEOUT) as r:
-        return r.read().decode("utf-8", "replace")
+    return fetch(req).decode("utf-8", "replace")
 
 
 def google_list(c):

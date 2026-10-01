@@ -1,4 +1,4 @@
-"""AWS Lambda entry point: scheduled scans/digests, and the web UI via a function URL.
+"""AWS Lambda entry point: scheduled scans/digests, and the web UI (password sign-in) via a function URL.
 
 State lives in S3: jobs.db (the SQLite database) and status.json (your Applied/Hide marks).
 To stay at $0, jobs.db is only written back once an hour, or right away when an alert went out.
@@ -6,9 +6,13 @@ Between uploads a warm container keeps its newer local copy; a cold one re-check
 already-seen jobs, which costs nothing but a little time.
 """
 import base64
+import hashlib
+import hmac
 import json
 import os
+import time
 from datetime import datetime
+from urllib.parse import parse_qs
 
 os.environ.setdefault("JOBS_DB", "/tmp/jobs.db")
 
@@ -90,15 +94,40 @@ watcher.load_status = lambda: S3Store().load_status()
 watcher.save_status = lambda st: S3Store().save_status(st)
 
 
+PASSWORD = os.environ["JOBS_UI_PASSWORD"]
+# the cookie holds a hash, not the password; changing the password signs every device out
+SESSION = hashlib.sha256(("job-watcher|" + PASSWORD).encode()).hexdigest()
+LOGIN_PAGE = """<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">
+<title>Job Watcher</title><body style="font:16px system-ui;display:grid;place-items:center;min-height:90vh;margin:0">
+<form method=post action=/login style="display:grid;gap:10px;width:260px"><b>Job Watcher</b>%s
+<input type=password name=p placeholder=Password autofocus required style="font:inherit;padding:8px">
+<button style="font:inherit;padding:8px">Open</button></form>"""
+
+
+def _page(code, ctype, out, **extra):
+    return {"statusCode": code, "headers": {"Content-Type": ctype, "Cache-Control": "no-store"}, "body": out, **extra}
+
+
 def web(event):
     http = event["requestContext"]["http"]
     body = event.get("body") or ""
     if event.get("isBase64Encoded"):
         body = base64.b64decode(body).decode()
     path = event.get("rawPath") or "/"
-    code, ctype, out = webui.handle(http["method"], path, event.get("queryStringParameters") or {}, body,
-                                    S3Store(), token=os.environ["JOBS_UI_TOKEN"])
-    return {"statusCode": code, "headers": {"Content-Type": ctype, "Cache-Control": "no-store"}, "body": out}
+    if http["method"] == "POST" and path == "/login":
+        given = (parse_qs(body).get("p") or [""])[0]
+        if hmac.compare_digest(given.encode(), PASSWORD.encode()):
+            return {"statusCode": 303, "headers": {"Location": "/"},
+                    "cookies": [f"jw={SESSION}; Max-Age=31536000; Path=/; HttpOnly; Secure; SameSite=Lax"]}
+        time.sleep(1)  # makes guessing slow
+        return _page(401, "text/html; charset=utf-8", LOGIN_PAGE % "<span style=color:#c00>Wrong password</span>")
+    signed_in = any(hmac.compare_digest(c.strip().encode(), f"jw={SESSION}".encode()) for c in event.get("cookies") or [])
+    if not signed_in:
+        if path.startswith("/api/"):
+            return _page(401, "text/plain", "sign in first")
+        return _page(200, "text/html; charset=utf-8", LOGIN_PAGE % "")
+    code, ctype, out = webui.handle(http["method"], path, event.get("queryStringParameters") or {}, body, S3Store())
+    return _page(code, ctype, out)
 
 
 def handler(event, context):

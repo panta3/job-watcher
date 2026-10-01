@@ -1789,7 +1789,8 @@
    "name": "DESIGNME Hair",
    "ats": "greenhouse",
    "id": "designmehair",
-   "note": "auto-discovered from SimplifyJobs lists 2026-09-26"
+   "enabled": false,
+   "note": "auto-discovered from SimplifyJobs lists 2026-09-26; board deleted (404 since 2026-09-29)"
   },
   {
    "name": "Dexterra Group",

@@ -29,7 +29,7 @@ EventBridge Scheduler (every 15 min) -> Lambda: scan
     ├─ fit score vs. resume, cross-feed de-duplication, closed-posting detection
     └─ ntfy push alert  (⭐ = explicit new grad / 2027 start)
 EventBridge Scheduler (8:05 / 21:05 Toronto) -> Lambda: digest + follow-up reminders
-Lambda function URL (?k=<secret>)             -> web app: rank, apply, track
+Vercel rewrite -> Lambda function URL         -> web app: rank, apply, track (password sign-in)
 S3                                            -> jobs.db (SQLite) + status.json (applications)
 ```
 
@@ -77,7 +77,7 @@ matched, and flags like *French required*, *Clearance* or *PhD*.
   notes, and a follow-up nudge in the morning digest after 14 days without an update.
 - **Referral shortcuts:** McMaster alumni and recruiters at the company on LinkedIn, salary and reviews.
 - Search, "Best fit" / "Newest" sort, start-date and posted-within filters, NEW badges since your last visit.
-- Works on a phone, follows light/dark mode. Gated by a secret key in the URL (403 without it).
+- Works on a phone, follows light/dark mode. Lives at a short Vercel address that passes requests through to the Lambda; asks for a password once per device.
 
 ## ☁️ AWS and cost
 Provisioned with Terraform (`infra/main.tf`): one Python 3.12 Lambda (1 GB), EventBridge Scheduler
@@ -107,7 +107,8 @@ python3 watcher.py test-notify         # check your phone gets alerts
 **Deploy to AWS** (Terraform + AWS CLI configured):
 ```bash
 printf 'ntfy_topic = "your-topic"\n' > infra/terraform.tfvars
-./deploy.sh      # creates everything, uploads state, sends the web app link to your phone
+./deploy.sh      # first time: creates everything, uploads state, sends the web app link to your phone
+./update.sh      # afterwards: ships code changes (never touches the database in S3)
 ```
 
 **Add a company:** find which hiring system its careers page uses (job links give it away:
@@ -147,5 +148,5 @@ printf 'ntfy_topic = "your-topic"\n' > infra/terraform.tfvars
 | `watcher.py` | scan, alerts, digests, follow-ups, CLI |
 | `webui.py` | the web app (single page, no build step) |
 | `lambda_function.py` | Lambda entry point: S3 sync, schedules, function URL |
-| `infra/main.tf`, `deploy.sh` | AWS infrastructure and one-command deploy |
+| `infra/main.tf`, `deploy.sh`, `update.sh` | AWS infrastructure, one-command deploy, and updates |
 | `companies.json` | the employer list |

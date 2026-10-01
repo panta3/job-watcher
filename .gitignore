@@ -17,3 +17,4 @@ status.json
 open_jobs.json
 crontab.before-deploy
 jobs.db*
+site/

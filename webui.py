@@ -2,7 +2,7 @@
 
 Served two ways with the same code:
   - locally:  python3 watcher.py serve          -> http://localhost:8765
-  - on AWS:   Lambda function URL (?k=<token>)  -> bookmark it on your phone
+  - on AWS:   short Vercel address -> Lambda function URL; lambda_function.py asks for the password
 
 Storage is pluggable so the same handler works with local files or S3:
   store.load_jobs() -> list[dict]      (open matches, built from jobs.db)

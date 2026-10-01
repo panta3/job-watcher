@@ -18,8 +18,8 @@ variable "ntfy_topic" {
   sensitive = true
 }
 
-variable "ui_token" {
-  description = "secret key the web UI link needs (?k=...); deploy.sh generates one"
+variable "ui_password" {
+  description = "password the web page asks for once per device; update.sh asks you for one"
   type        = string
   sensitive   = true
 }
@@ -60,7 +60,8 @@ data "archive_file" "code" {
   output_path = "${path.module}/build/job-watcher.zip"
   source_dir  = "${path.module}/.."
   excludes = ["infra", "jobs.db", "jobs.db-wal", "jobs.db-shm", "jobs.db.scan.lock", "config.env", "config.env.example",
-    "README.md", ".gitignore", "__pycache__", ".git", "watcher.log", "serve.log", "status.json", "open_jobs.json", "deploy.sh"]
+    "README.md", ".gitignore", "__pycache__", ".git", "watcher.log", "serve.log", "status.json", "open_jobs.json", "deploy.sh",
+  "update.sh", "site", "crontab.before-deploy", "docs"]
 }
 
 resource "aws_iam_role" "lambda" {
@@ -100,9 +101,9 @@ resource "aws_lambda_function" "watcher" {
   memory_size      = 1024 # peak ~600 MB (Simplify list is 13 MB of JSON); ~170k GB-s/month, free tier is 400k
   environment {
     variables = {
-      JOBS_BUCKET     = aws_s3_bucket.state.id
-      JOBS_NTFY_TOPIC = var.ntfy_topic
-      JOBS_UI_TOKEN   = var.ui_token
+      JOBS_BUCKET      = aws_s3_bucket.state.id
+      JOBS_NTFY_TOPIC  = var.ntfy_topic
+      JOBS_UI_PASSWORD = var.ui_password
     }
   }
   depends_on = [aws_cloudwatch_log_group.lambda]
@@ -152,7 +153,7 @@ resource "aws_scheduler_schedule" "s" {
   }
 }
 
-# ---------------------------------------------------------------- web UI (public link, gated by ?k=<ui_token>)
+# ---------------------------------------------------------------- web UI (public link; the page asks for ui_password)
 resource "aws_lambda_function_url" "ui" {
   function_name      = aws_lambda_function.watcher.function_name
   authorization_type = "NONE"
@@ -186,8 +187,7 @@ resource "aws_budgets_budget" "guard" {
 }
 
 output "ui_url" {
-  value     = "${aws_lambda_function_url.ui.function_url}?k=${var.ui_token}"
-  sensitive = true
+  value = aws_lambda_function_url.ui.function_url
 }
 
 output "bucket" {

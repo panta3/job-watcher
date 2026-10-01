@@ -173,7 +173,7 @@ def scan_company(c, con_path, dry, max_years, max_age, seed_detail_days):
     key = f'{c["ats"]}:{c["id"]}'
     con = connect()
     try:
-        seeded = con.execute("SELECT seeded FROM sources WHERE key=?", (key,)).fetchone()
+        seeded = con.execute("SELECT seeded, fails FROM sources WHERE key=?", (key,)).fetchone()
         seen = {r[0] for r in con.execute("SELECT id FROM jobs WHERE key=?", (key,))}
     finally:
         con.close()
@@ -220,7 +220,8 @@ def scan_company(c, con_path, dry, max_years, max_age, seed_detail_days):
         with DB_WRITE:
             _save_company(key, jobs, rows, now, c)
     matched = sum(r[7] for r in rows)
-    return alerts, dict(listed=len(jobs), new=len(new), matched=matched, details=detail_calls, first_run=first_run)
+    return alerts, dict(listed=len(jobs), new=len(new), matched=matched, details=detail_calls, first_run=first_run,
+                        recovered=bool(seeded and seeded[1]))
 
 
 def _save_company(key, jobs, rows, now, c):
@@ -251,12 +252,20 @@ def _write_company(con, key, jobs, rows, now, c):
                 (key, now))
 
 
+TRANSIENT = re.compile(r"HTTP Error (429|5\d\d)|timed out|Temporary failure|Connection reset|RemoteDisconnected")
+
+
 def record_failure(con, key, name, err):
     with DB_WRITE:
         _record_failure(con, key, err)
     fails = con.execute("SELECT fails FROM sources WHERE key=?", (key,)).fetchone()[0]
-    if fails == 6:  # ~1.5 hours of failures: the feed probably moved
-        notify(f"job-watcher: {name} feed broken", f"Failed 6 runs in a row.\n{err[:300]}", priority=2, tags=["warning"])
+    if TRANSIENT.search(err):  # rate limit / server hiccup: the feed is still there, so wait much longer before saying so
+        if fails == 24:
+            notify(f"job-watcher: {name} keeps refusing requests", f"Failed 24 runs in a row; every other company is "
+                   f"still being scanned.\n{err[:300]}", priority=2, tags=["warning"])
+    elif fails == 6:  # ~1.5 hours of failures: the feed probably moved
+        notify(f"job-watcher: {name} feed broken", f"Failed 6 runs in a row; every other company is still being "
+               f"scanned.\n{err[:300]}", priority=2, tags=["warning"])
 
 
 def _record_failure(con, key, err):
@@ -303,7 +312,7 @@ def _scan(dry=False):
         return not (c.get("every_minutes") and lo) or \
             (datetime.now() - datetime.fromisoformat(lo)).total_seconds() >= c["every_minutes"] * 60 - 120
     companies = [c for c in companies if due(c)]
-    seeded_any = False
+    seeded_any = recovered_any = False
     all_alerts, totals, failed = [], {"listed": 0, "new": 0, "matched": 0, "details": 0}, []
     with cf.ThreadPoolExecutor(int(ENV.get("THREADS", 16))) as ex:
         futs = {ex.submit(scan_company, c, DB, dry, max_years, max_age, float(ENV["SEED_DETAIL_DAYS"])): c for c in companies}
@@ -325,6 +334,7 @@ def _scan(dry=False):
                     + ("  (first run: saved silently)" if st["first_run"] else ""))
             all_alerts += alerts
             seeded_any = seeded_any or st["first_run"]
+            recovered_any = recovered_any or st["recovered"]
 
     # drop cross-feed duplicates: already matched earlier via another feed, or twice in this run
     unique, keys = [], set()
@@ -348,7 +358,8 @@ def _scan(dry=False):
             continue
         all_alerts.append(j)
     all_alerts.sort(key=lambda j: (j.get("start") != "2027", not j.get("entry"), j["company"]))
-    changed = False
+    # a feed that failed and now works again must be saved, or the stored fail count only ever grows
+    changed = recovered_any
     if in_quiet_hours():  # overnight: only ⭐ jobs buzz; the rest wait for one morning message
         held = [j for j in all_alerts if not j.get("entry") and j.get("start") != "2027"]
         all_alerts = [j for j in all_alerts if j.get("entry") or j.get("start") == "2027"]
@@ -444,7 +455,7 @@ def follow_ups():
 def cmd_digest(hours=12):
     con = db()
     rows = [r for r in matches_since(con, hours)]
-    broken = con.execute("SELECT key FROM sources WHERE fails >= 3").fetchall()
+    broken = con.execute("SELECT key FROM sources WHERE fails >= 6").fetchall()
     part = "Morning" if now_local().hour < 12 else "Evening"
     nudges = follow_ups() if part == "Morning" else []
     if part == "Morning":
