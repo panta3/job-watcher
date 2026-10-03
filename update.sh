@@ -38,8 +38,10 @@ mkdir -p "$HERE/site"
 cd "$HERE/site"
 echo "{\"rewrites\": [{\"source\": \"/(.*)\", \"destination\": \"${AWS_URL%/}/\$1\"}]}" > vercel.json
 [ -d .vercel ] || vercel link --yes --project "$SITE" >/dev/null
+# never let GitHub pushes deploy: the repo has no rewrite (site/ is gitignored), so a push deploy is a 404 page
+vercel git disconnect --yes >/dev/null 2>&1 || true
 URL="https://$SITE.vercel.app"
-# 4. check it works (a deploy that silently didn't happen once left the page on Vercel's 404), then tell your phone
+# 4. check it works, then tell your phone
 for try in 1 2 3; do
   vercel deploy --prod --yes >/dev/null || true
   sleep 5

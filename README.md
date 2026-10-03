@@ -176,8 +176,11 @@ variable in `infra/main.tf`/`update.sh` and the status file in the IAM policy.
   Now every request goes through one retry-with-backoff helper, a recovered feed forces a save, and
   rate limits and timeouts only alert after 24 straight failures (a 404 still alerts after 6).
 - **A deleted job board failed 257 scans in a row** (404 since it was removed); it's disabled now.
-- **The short address served Vercel's 404 twice.** A deploy that hung finished late and took over
-  production. `update.sh` now verifies the live page after deploying and redeploys or fails loudly.
+- **Every GitHub push took the web page down.** Linking the Vercel project quietly connected it to
+  this repo, so each push deployed the repo itself, which has no rewrite rule (it lives in the
+  gitignored `site/` folder), and production became a 404. Matching deploy timestamps to commits
+  found it. The GitHub link is now removed, `update.sh` removes it again on every run and checks
+  the live page after deploying.
 
 ## ⚠️ Known limits
 - Not covered: Apple (private API), Meta and Tesla (bot protection), Uber, SAP, Kinaxis, OpenText, CGI.
