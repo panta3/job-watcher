@@ -65,6 +65,16 @@ but disabled because they flood alerts with reposts.
    - ✗ **Wants a start before May 2027:** ASAP, immediate start, fixed-term contracts, January starts. Hidden, never alerts.
    - **Not stated:** shown on the page and in digests; phone alerts begin February 2027.
 
+## 👥 Profiles
+One scan, several people. `profiles.py` lists who the watcher hunts for: me (entry-level tech, can't
+start before May 2027) and a friend (entry-level business roles: finance, accounting, marketing, sales,
+consulting, HR, supply chain, analyst). Each company is listed once per scan and every profile filters
+the same postings its own way, so a second person costs almost nothing extra. Each profile has its own
+password (the password decides whose page opens), phone alerts, digests and Applied/Hide marks. Business
+titles are about 10x more common than tech ones, so the business profile only buzzes for explicitly
+entry-level jobs; the rest are on the page and in the digest. A new profile's page is filled once from
+the last 45 days of postings.
+
 ## ⭐ Fit score
 `fit.py` scores each job 0–100 against the skills on my resume (Python, AWS, Terraform, React,
 security, PyTorch/RAG, testing…) plus title family, experience asked, and commute distance from
@@ -143,7 +153,8 @@ printf 'ntfy_topic = "your-topic"\n' > infra/terraform.tfvars
 | File | What's in it |
 |---|---|
 | `sources.py` | the 21 adapters, one per hiring system or site |
-| `filters.py` | tech / seniority / student / Canada / experience / start-date rules |
+| `filters.py` | tech / business / seniority / student / Canada / experience / start-date rules |
+| `profiles.py` | who the watcher hunts for, and each person's settings |
 | `fit.py` | resume-fit scoring |
 | `watcher.py` | scan, alerts, digests, follow-ups, CLI |
 | `webui.py` | the web app (single page, no build step) |

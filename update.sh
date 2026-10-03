@@ -18,6 +18,9 @@ if ! grep -q '^ui_password' terraform.tfvars; then
   done
   echo "ui_password = \"$PW\"" >> terraform.tfvars
 fi
+# the business profile's password and phone-alert topic (see profiles.py); generated, printed at the end
+grep -q '^biz_ui_password' terraform.tfvars || echo "biz_ui_password = \"$(openssl rand -base64 9 | tr -dc 'A-Za-z0-9' | head -c 10)\"" >> terraform.tfvars
+grep -q '^biz_ntfy_topic' terraform.tfvars || echo "biz_ntfy_topic = \"jobs-biz-$(openssl rand -hex 8)\"" >> terraform.tfvars
 [ "${1:-}" = "--password-only" ] && exit 0   # deploy.sh needs the password before its first apply
 
 # 2. AWS
@@ -35,16 +38,23 @@ mkdir -p "$HERE/site"
 cd "$HERE/site"
 echo "{\"rewrites\": [{\"source\": \"/(.*)\", \"destination\": \"${AWS_URL%/}/\$1\"}]}" > vercel.json
 [ -d .vercel ] || vercel link --yes --project "$SITE" >/dev/null
-vercel deploy --prod --yes >/dev/null
 URL="https://$SITE.vercel.app"
-
-# 4. check it works, send the link to your phone
-sleep 5
-code=$(curl -s -o /dev/null -w '%{http_code}' "$URL")
-echo "web page check: HTTP $code (200 = working)"
-T=$(grep ntfy_topic "$HERE/infra/terraform.tfvars" | cut -d'"' -f2)
-curl -s -H "Title: Job Watcher web page" -H "Click: $URL" -d "New address: $URL (asks for your password once)." "https://ntfy.sh/$T" >/dev/null
+# 4. check it works (a deploy that silently didn't happen once left the page on Vercel's 404), then tell your phone
+for try in 1 2 3; do
+  vercel deploy --prod --yes >/dev/null || true
+  sleep 5
+  code=$(curl -s -o /dev/null -w '%{http_code}' "$URL")
+  [ "$code" = 200 ] && break
+  echo "web page check: HTTP $code, redeploying ($try/3)..."
+done
+[ "$code" = 200 ] || { echo "The web page is NOT working (HTTP $code). Run: cd site && vercel deploy --prod"; exit 1; }
+echo "web page check: HTTP 200, working"
+T=$(grep "^ntfy_topic" "$HERE/infra/terraform.tfvars" | cut -d'"' -f2)
+[ ${#REPLACE[@]} -gt 0 ] && curl -s -H "Title: Job Watcher web page" -H "Click: $URL" \
+  -d "New address: $URL (asks for your password once)." "https://ntfy.sh/$T" >/dev/null
 
 echo
 echo "Updated. Your web page:  $URL"
+echo "Business profile: same address, password $(grep '^biz_ui_password' "$HERE/infra/terraform.tfvars" | cut -d'"' -f2),"
+echo "  phone alerts: ntfy app -> subscribe to topic $(grep '^biz_ntfy_topic' "$HERE/infra/terraform.tfvars" | cut -d'"' -f2)"
 echo "Logs: aws logs tail /aws/lambda/job-watcher --follow"

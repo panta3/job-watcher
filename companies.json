@@ -5618,6 +5618,72 @@
    "ats": "oracle",
    "id": "fa-exby-saasfaprod1.fa.ocs.oraclecloud.com|CX_1013",
    "note": "Oracle Recruiting Cloud, has Canadian postings"
+  },
+  {
+   "name": "General Mills",
+   "ats": "workday",
+   "id": "genmills/wd1/GMI_External_Careers",
+   "note": "business employers, added 2026-10-03"
+  },
+  {
+   "name": "Shell",
+   "ats": "workday",
+   "id": "shell/wd3/ShellCareers",
+   "note": "business employers, added 2026-10-03"
+  },
+  {
+   "name": "Mondelēz",
+   "ats": "workday",
+   "id": "mdlz/wd3/External",
+   "note": "business employers, added 2026-10-03"
+  },
+  {
+   "name": "Pfizer",
+   "ats": "workday",
+   "id": "pfizer/wd1/PfizerCareers",
+   "note": "business employers, added 2026-10-03"
+  },
+  {
+   "name": "Kraft Heinz",
+   "ats": "workday",
+   "id": "heinz/wd1/KraftHeinz_Careers",
+   "note": "business employers, added 2026-10-03"
+  },
+  {
+   "name": "CPP Investments",
+   "ats": "workday",
+   "id": "cppib/wd10/cppinvestments",
+   "note": "business employers, added 2026-10-03"
+  },
+  {
+   "name": "Kimberly-Clark",
+   "ats": "workday",
+   "id": "kimberlyclark/wd1/GLOBAL",
+   "note": "business employers, added 2026-10-03"
+  },
+  {
+   "name": "Coca-Cola",
+   "ats": "workday",
+   "id": "coke/wd1/coca-cola-careers",
+   "note": "business employers, added 2026-10-03"
+  },
+  {
+   "name": "Canada Goose",
+   "ats": "workday",
+   "id": "canadagoose/wd3/CanadaGooseCareers",
+   "note": "business employers, added 2026-10-03"
+  },
+  {
+   "name": "Moneris",
+   "ats": "workday",
+   "id": "moneris/wd3/Moneris",
+   "note": "business employers, added 2026-10-03"
+  },
+  {
+   "name": "iA Financial Group",
+   "ats": "workday",
+   "id": "ia/wd3/Professional",
+   "note": "business employers, added 2026-10-03"
   }
  ]
 }

@@ -14,6 +14,8 @@ import json
 import os
 from datetime import datetime
 
+from profiles import ME
+
 STAGES = ["applied", "oa", "interview", "offer", "rejected", "ghosted"]
 
 
@@ -45,12 +47,10 @@ def update_status(status, req):
         e["notes"] = str(req["notes"])[:2000]
 
 
-def handle(method, path, query, body, store, token=None):
-    """Returns (status_code, content_type, body_str)."""
-    if token and query.get("k") != token:
-        return 403, "text/plain", "forbidden: add ?k=<your token> to the URL"
+def handle(method, path, query, body, store, profile=ME):
+    """Returns (status_code, content_type, body_str). Sign-in happens before this (lambda_function.py)."""
     if method == "GET" and path in ("/", ""):
-        return 200, "text/html; charset=utf-8", render(store.load_jobs(), store.load_status(), query.get("k", ""), store.updated())
+        return 200, "text/html; charset=utf-8", render(store.load_jobs(), store.load_status(), store.updated(), profile)
     if method == "GET" and path == "/api/jobs":
         return 200, "application/json", json.dumps({"jobs": store.load_jobs(), "status": store.load_status()})
     if method == "POST" and path == "/api/status":
@@ -87,8 +87,9 @@ class FileStore:
             return ""
 
 
-def render(jobs, status, token, updated=""):
-    data = json.dumps({"jobs": jobs, "status": status, "token": token, "updated": updated}).replace("</", "<\\/")
+def render(jobs, status, updated="", profile=ME):
+    who = {"label": profile.label, "start_gate": profile.start_gate, "fit": profile.fit, "school": profile.school}
+    data = json.dumps({"jobs": jobs, "status": status, "updated": updated, "profile": who}).replace("</", "<\\/")
     return PAGE.replace("/*DATA*/null", data)
 
 
@@ -151,7 +152,7 @@ main{padding:12px 16px 60px}
 </head>
 <body>
 <header><div class="wrap">
-  <h1>Job Watcher</h1>
+  <h1 id="h1">Job Watcher</h1>
   <div class="sub" id="sub"></div>
   <div class="controls">
     <input type="search" id="q" placeholder="Search title, company, city, skill…">
@@ -165,11 +166,17 @@ main{padding:12px 16px 60px}
 <main><div class="wrap"><p class="count" id="count"></p><div id="list"></div></div></main>
 <script>
 const DATA = /*DATA*/null;
-const status = DATA.status;
+const $id = id => document.getElementById(id);
+const status = DATA.status, P = DATA.profile;
+document.title = "Job Watcher · " + P.label; $id("h1").textContent = "Job Watcher · " + P.label;
+if(!P.start_gate) $id("start").hidden = true;
+if(!P.fit){ $id("sort").querySelector('[value="fit"]').remove(); }
 const STAGES = {applied:"Applied", oa:"Online assessment", interview:"Interviewing", offer:"Offer 🎉", rejected:"Rejected", ghosted:"No response"};
 const $ = s => document.querySelector(s);
 const ls = {get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}}, set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
-const prefs = Object.assign({starOnly:false, days:"999", view:"todo", sort:"fit", start:"ok"}, ls.get("jw-prefs", {}));
+const prefs = Object.assign({starOnly:false, days:"999", view:"todo", sort:P.fit?"fit":"new", start:"ok"}, ls.get("jw-prefs", {}));
+if(!P.fit) prefs.sort = "new";
+if(!P.start_gate) prefs.start = "all";
 const lastVisit = ls.get("jw-last-visit", null);
 ls.set("jw-last-visit", new Date().toISOString().slice(0,19));
 $("#starOnly").classList.toggle("on", prefs.starOnly); $("#days").value=prefs.days; $("#view").value=prefs.view; $("#sort").value=prefs.sort; $("#start").value=prefs.start;
@@ -186,9 +193,10 @@ function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&l
 function co(j){ return (j.company||"").replace(/\s*\((Job Bank|new grad|early careers)\)/i,"").replace(/,?\s+(Inc|Corp|Corporation|Ltd|LLC)\.?$/i,"").trim(); }
 function links(j){
   return `<div class="links">
-    <a href="https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent('McMaster '+co(j))}" target="_blank" rel="noopener">👥 McMaster alumni there</a>
+    ${P.school?`<a href="https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(P.school+' '+co(j))}" target="_blank" rel="noopener">👥 ${esc(P.school)} alumni there</a>`
+      :`<a href="https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(co(j))}" target="_blank" rel="noopener">👥 People there</a>`}
     <a href="https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(co(j)+' recruiter Canada')}" target="_blank" rel="noopener">Recruiters</a>
-    <a href="https://www.google.com/search?q=${encodeURIComponent('levels.fyi '+co(j)+' software engineer salary Canada')}" target="_blank" rel="noopener">💰 Salary</a>
+    <a href="https://www.google.com/search?q=${encodeURIComponent(P.fit?'levels.fyi '+co(j)+' software engineer salary Canada':co(j)+' '+j.title+' salary Canada glassdoor')}" target="_blank" rel="noopener">💰 Salary</a>
     <a href="https://www.google.com/search?q=${encodeURIComponent(co(j)+' glassdoor reviews Canada')}" target="_blank" rel="noopener">Reviews</a>
   </div>`; }
 function fitBox(j){ if(j.fit==null) return ""; const c=j.fit>=70?"hi":j.fit>=45?"mid":"lo";
@@ -201,7 +209,7 @@ let timer; async function save(k, patch){
          if(patch.state==="applied"){ e.at=e.at||new Date().toISOString().slice(0,19); e.stage=e.stage||"applied"; e.stage_at=e.stage_at||e.at; }
          if(patch.stage){ e.stage_at=new Date().toISOString().slice(0,19); } }
   render();
-  try{ await fetch("api/status"+(DATA.token?"?k="+encodeURIComponent(DATA.token):""), {method:"POST",headers:{"Content-Type":"application/json"},
+  try{ await fetch("api/status", {method:"POST",headers:{"Content-Type":"application/json"},
         body:JSON.stringify(Object.assign({k, title:j.title, company:j.company, url:j.url, location:j.location}, patch))}); }
   catch(e){ alert("Couldn't save — check your connection."); }
 }
@@ -229,7 +237,7 @@ function render(){
   const apps=Object.values(status).filter(s=>s.state==="applied");
   const n=s=>apps.filter(a=>a.stage===s).length;
   const n27 = DATA.jobs.filter(j=>j.start==="2027").length;
-  $("#sub").textContent = `${DATA.jobs.length} open matches · ${n27} confirmed 2027 starts · ${apps.length} applied · ${n("oa")+n("interview")} in progress · ${n("offer")} offers · updated ${DATA.updated||""}`;
+  $("#sub").textContent = `${DATA.jobs.length} open matches · ${P.start_gate?n27+" confirmed 2027 starts · ":""}${apps.length} applied · ${n("oa")+n("interview")} in progress · ${n("offer")} offers · updated ${DATA.updated||""}`;
   $("#count").textContent = rows.length + (rows.length==1?" job":" jobs") + (pipe?" in your pipeline":"");
   $("#list").innerHTML = rows.length ? rows.map(j=>{
     const s=status[j.k]||{}, st=s.state, isNew=lastVisit && j.first_seen > lastVisit && !st;
@@ -241,7 +249,7 @@ function render(){
         <div class="meta">${esc(j.company)} · ${esc(j.location)}</div>
         <div class="badges">
           ${isNew?'<span class="b new">NEW</span>':""}
-          ${j.start==="2027"?'<span class="b ok">✓ 2027 start</span>':j.start==="now"?'<span class="b warn">wants a start before May 2027</span>':j.closed?"":'<span class="b">start date not stated</span>'}
+          ${!P.start_gate?"":j.start==="2027"?'<span class="b ok">✓ 2027 start</span>':j.start==="now"?'<span class="b warn">wants a start before May 2027</span>':j.closed?"":'<span class="b">start date not stated</span>'}
           ${j.star?'<span class="b star">⭐ entry level</span>':""}
           ${j.closed?'<span class="b warn">posting closed</span>':""}
           ${(j.flags||[]).map(f=>`<span class="b warn">${esc(f)}</span>`).join("")}
@@ -272,7 +280,7 @@ document.addEventListener("click", e=>{
 document.addEventListener("change", e=>{ const s=e.target.closest("[data-stage]"); if(s) save(s.dataset.stage,{stage:s.value}); });
 document.addEventListener("input", e=>{ const t=e.target.closest("[data-notes]"); if(!t) return;
   clearTimeout(timer); timer=setTimeout(()=>{ (status[t.dataset.notes]||{}).notes=t.value;
-    fetch("api/status"+(DATA.token?"?k="+encodeURIComponent(DATA.token):""),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({k:t.dataset.notes,notes:t.value})}); }, 700); });
+    fetch("api/status",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({k:t.dataset.notes,notes:t.value})}); }, 700); });
 $("#starOnly").onclick=()=>{ $("#starOnly").classList.toggle("on"); render(); };
 ["#q","#days","#view","#sort","#start"].forEach(s=>$(s).addEventListener("input", render));
 render();

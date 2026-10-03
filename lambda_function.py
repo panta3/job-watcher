@@ -21,6 +21,7 @@ from botocore.exceptions import ClientError  # noqa: E402
 
 import watcher  # noqa: E402
 import webui  # noqa: E402
+from profiles import ME, PROFILES  # noqa: E402
 
 s3 = boto3.client("s3")
 BUCKET = os.environ["JOBS_BUCKET"]
@@ -63,11 +64,14 @@ def sync_up():
 
 
 class S3Store:
-    """webui storage: open jobs come from jobs.db, marks from status.json."""
+    """webui storage for one profile: open jobs come from jobs.db, marks from that profile's status file."""
+
+    def __init__(self, profile=ME):
+        self.profile = profile
 
     def load_jobs(self):
         sync_down()
-        return watcher.open_jobs_payload(watcher.db())
+        return watcher.open_jobs_payload(watcher.db(), self.profile)
 
     def updated(self):
         try:
@@ -79,24 +83,27 @@ class S3Store:
 
     def load_status(self):
         try:
-            return json.loads(s3.get_object(Bucket=BUCKET, Key="status.json")["Body"].read())
+            return json.loads(s3.get_object(Bucket=BUCKET, Key=self.profile.status_file)["Body"].read())
         except ClientError as e:
             if e.response["Error"]["Code"] in ("404", "NoSuchKey"):
                 return {}
             raise
 
     def save_status(self, status):
-        s3.put_object(Bucket=BUCKET, Key="status.json", Body=json.dumps(status).encode(), ContentType="application/json")
+        s3.put_object(Bucket=BUCKET, Key=self.profile.status_file, Body=json.dumps(status).encode(), ContentType="application/json")
 
 
-# follow-up reminders (digest) read and write the same status.json the web page uses
-watcher.load_status = lambda: S3Store().load_status()
-watcher.save_status = lambda st: S3Store().save_status(st)
+# follow-up reminders (digest) read and write the same status files the web pages use
+watcher.load_status = lambda p=ME: S3Store(p).load_status()
+watcher.save_status = lambda st, p=ME: S3Store(p).save_status(st)
 
 
-PASSWORD = os.environ["JOBS_UI_PASSWORD"]
-# the cookie holds a hash, not the password; changing the password signs every device out
-SESSION = hashlib.sha256(("job-watcher|" + PASSWORD).encode()).hexdigest()
+# each profile has its own password; the password you type decides whose page you get.
+# The cookie holds a hash, not the password; changing a password signs that person's devices out.
+os.environ[ME.password_env]  # the owner's password is required
+PASSWORDS = {p.id: os.environ.get(p.password_env, "") for p in PROFILES}
+SESSIONS = {hashlib.sha256(f"job-watcher|{pid}|{pw}".encode()).hexdigest(): pid for pid, pw in PASSWORDS.items() if pw}
+PROFILE_BY_ID = {p.id: p for p in PROFILES}
 LOGIN_PAGE = """<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">
 <title>Job Watcher</title><body style="font:16px system-ui;display:grid;place-items:center;min-height:90vh;margin:0">
 <form method=post action=/login style="display:grid;gap:10px;width:260px"><b>Job Watcher</b>%s
@@ -115,18 +122,25 @@ def web(event):
         body = base64.b64decode(body).decode()
     path = event.get("rawPath") or "/"
     if http["method"] == "POST" and path == "/login":
-        given = (parse_qs(body).get("p") or [""])[0]
-        if hmac.compare_digest(given.encode(), PASSWORD.encode()):
-            return {"statusCode": 303, "headers": {"Location": "/"},
-                    "cookies": [f"jw={SESSION}; Max-Age=31536000; Path=/; HttpOnly; Secure; SameSite=Lax"]}
+        given = (parse_qs(body).get("p") or [""])[0].encode()
+        for session, pid in SESSIONS.items():
+            if hmac.compare_digest(given, PASSWORDS[pid].encode()):
+                return {"statusCode": 303, "headers": {"Location": "/"},
+                        "cookies": [f"jw={session}; Max-Age=31536000; Path=/; HttpOnly; Secure; SameSite=Lax"]}
         time.sleep(1)  # makes guessing slow
         return _page(401, "text/html; charset=utf-8", LOGIN_PAGE % "<span style=color:#c00>Wrong password</span>")
-    signed_in = any(hmac.compare_digest(c.strip().encode(), f"jw={SESSION}".encode()) for c in event.get("cookies") or [])
-    if not signed_in:
+    profile = None
+    for c in event.get("cookies") or []:
+        name, _, value = c.strip().partition("=")
+        for session, pid in SESSIONS.items():
+            if name == "jw" and hmac.compare_digest(value.encode(), session.encode()):
+                profile = PROFILE_BY_ID[pid]
+    if not profile:
         if path.startswith("/api/"):
             return _page(401, "text/plain", "sign in first")
         return _page(200, "text/html; charset=utf-8", LOGIN_PAGE % "")
-    code, ctype, out = webui.handle(http["method"], path, event.get("queryStringParameters") or {}, body, S3Store())
+    code, ctype, out = webui.handle(http["method"], path, event.get("queryStringParameters") or {}, body,
+                                    S3Store(profile), profile=profile)
     return _page(code, ctype, out)
 
 

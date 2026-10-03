@@ -387,7 +387,10 @@ def simplify_list(c):
 # ---------------------------------------------------------------- Job Bank (Government of Canada) — lots of small employers
 JOBBANK_SEARCHES = ["software developer", "software engineer", "programmer", "web developer", "data analyst",
                     "data scientist", "data engineer", "machine learning", "cloud", "devops", "cybersecurity",
-                    "security analyst", "QA analyst", "network", "database", "IT support", "computer systems"]
+                    "security analyst", "QA analyst", "network", "database", "IT support", "computer systems",
+                    # business profile
+                    "business analyst", "financial analyst", "accountant", "marketing coordinator", "marketing specialist",
+                    "human resources", "supply chain", "purchasing", "sales representative", "account manager"]
 
 
 def jobbank_list(c):

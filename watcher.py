@@ -27,6 +27,7 @@ import filters
 import fit
 import sources
 import webui
+from profiles import ME, PROFILES
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DB = os.environ.get("JOBS_DB") or os.path.join(HERE, "jobs.db")
@@ -75,16 +76,16 @@ def in_quiet_hours():
     return h >= start or h < end if start > end else start <= h < end
 
 
-# Applied/Hide/pipeline marks. Local file by default; the Lambda swaps in S3 versions.
-def _load_status_file():
+# Applied/Hide/pipeline marks, one file per profile. Local files by default; the Lambda swaps in S3 versions.
+def _load_status_file(profile=ME):
     try:
-        return json.load(open(STATUS_JSON))
+        return json.load(open(os.path.join(os.path.dirname(DB), profile.status_file)))
     except FileNotFoundError:
         return {}
 
 
-def _save_status_file(st):
-    json.dump(st, open(STATUS_JSON, "w"), indent=1)
+def _save_status_file(st, profile=ME):
+    json.dump(st, open(os.path.join(os.path.dirname(DB), profile.status_file), "w"), indent=1)
 
 
 load_status, save_status = _load_status_file, _save_status_file
@@ -126,6 +127,16 @@ def db():
         except sqlite3.OperationalError:
             pass
     con.execute("CREATE INDEX IF NOT EXISTS jobs_dedup ON jobs(dedup)")
+    # jobs = every posting ever seen (shared facts); matches = which profile wants it.
+    # jobs.matched now means "at least one profile wants it" (closure checks, backfill).
+    con.execute("""CREATE TABLE IF NOT EXISTS matches (
+        profile TEXT, key TEXT, id TEXT, priority INTEGER DEFAULT 0, alerted INTEGER DEFAULT 0,
+        held INTEGER DEFAULT 0, reason TEXT DEFAULT '', PRIMARY KEY (profile, key, id))""")
+    if not con.execute("SELECT 1 FROM matches WHERE profile='me' LIMIT 1").fetchone():
+        with con:  # one-time move of the original single-profile matches
+            con.execute("""INSERT OR IGNORE INTO matches (profile, key, id, priority, alerted, held, reason)
+                           SELECT 'me', key, id, priority, alerted, COALESCE(held, 0), COALESCE(reason, '')
+                           FROM jobs WHERE matched=1""")
     return con
 
 
@@ -136,10 +147,10 @@ def dedup_key(j):
 
 
 # ---------------------------------------------------------------- notifications (ntfy.sh)
-def notify(title, message, url=None, priority=3, tags=None):
-    topic = ENV.get("JOBS_NTFY_TOPIC")
-    if not topic:
-        log("NOTIFY (no JOBS_NTFY_TOPIC set):", title, "|", message)
+def notify(title, message, url=None, priority=3, tags=None, profile=ME):
+    topic = ENV.get(profile.topic_env)
+    if not topic:  # never fall back to someone else's phone
+        log(f"NOTIFY (no {profile.topic_env} set):", title, "|", message)
         return
     body = {"topic": topic, "title": title[:250], "message": message[:3900], "priority": priority,
             "tags": tags or []}
@@ -157,14 +168,14 @@ def notify(title, message, url=None, priority=3, tags=None):
             time.sleep(5 * (attempt + 1))
 
 
-def alert_job(j):
+def alert_job(j, profile=ME):
     star = j.get("entry") or j.get("start") == "2027"
     yrs = j.get("min_years")
     lines = [j["company"], j["location"][:150]] + (["Starts 2027 ✓"] if j.get("start") == "2027" else [])
     if yrs is not None:
         lines.append(f"Asks for {yrs}+ yrs experience")
     notify(("⭐ " if star else "") + j["title"], "\n".join(lines), url=j["url"],
-           priority=5 if star else 4, tags=["briefcase"])
+           priority=5 if star else 4, tags=["briefcase"], profile=profile)
 
 
 # ---------------------------------------------------------------- scanning
@@ -183,61 +194,73 @@ def scan_company(c, con_path, dry, max_years, max_age, seed_detail_days):
     lister = sources.LISTERS[c["ats"]]
     jobs = lister(c, is_seen) if c["ats"] == "workday" else lister(c)
     new = [j for j in {j["id"]: j for j in jobs}.values() if not is_seen(j)]
-    alerts, rows, detail_calls = [], [], 0
+    alerts, rows, match_rows, detail_calls = [], [], [], 0
     now = datetime.now().isoformat(timespec="seconds")
 
     for j in new:
-        keep, reason = filters.title_verdict(j["title"])
-        prio = 0
+        # each profile's cheap title check; details are fetched once if anyone is interested
+        verdicts = {p.id: p.title_verdict(j["title"]) for p in PROFILES}
+        wanted = [p for p in PROFILES if verdicts[p.id][0]]
+        reason = verdicts[ME.id][1] if not verdicts[ME.id][0] else ""
         age = j.get("age_days")
         too_old = age is not None and age > (seed_detail_days if first_run else max_age)
-        if keep and too_old:
-            keep, reason = False, f"old ({age:.0f}d)"
-        if keep and not filters.is_canada(j) and not filters.location_needs_details(j) \
+        if wanted and too_old:
+            wanted, reason = [], f"old ({age:.0f}d)"
+        if wanted and not filters.is_canada(j) and not filters.location_needs_details(j) \
                 and c["ats"] not in sources.DETAILERS:
-            keep, reason = False, "not Canada"
-        if keep and c["ats"] in sources.DETAILERS:
+            wanted, reason = [], "not Canada"
+        if wanted and c["ats"] in sources.DETAILERS:
             # cheap location reject before spending a request, unless the listing is vague
             if c["ats"] == "greenhouse" and not filters.is_canada(j) and not filters.location_needs_details(j) \
                     and "canada" not in j["location"].lower():
-                keep, reason = False, "not Canada"
+                wanted, reason = [], "not Canada"
             else:
                 try:
                     sources.DETAILERS[c["ats"]](c, j)
                     detail_calls += 1
                 except Exception as e:
                     log(f"  details failed {c['name']} {j['title']}: {e}")
-        if keep:
-            keep, reason, prio = filters.full_verdict(j, max_years)
+        kept = {}
+        for p in wanted:
+            keep, why, prio = filters.full_verdict(j, p.max_years)
+            if keep:
+                kept[p.id] = prio
+            elif p is ME or not reason:
+                reason = why
+        if kept:
+            reason = ""
         posted = (datetime.now() - timedelta(days=age)).strftime("%Y-%m-%d") if age is not None else None
         rows.append((key, j["id"], j["company"], j["title"], j["location"][:500], j["url"], now,
-                     int(keep), reason, prio, j.get("min_years"), int(keep and not first_run), posted, dedup_key(j),
-                     (j.get("description") or "")[:6000] if keep else None, now))
-        if keep and not first_run:
-            alerts.append(j)
+                     int(bool(kept)), reason, kept.get(ME.id, 0), j.get("min_years"), int(ME.id in kept and not first_run),
+                     posted, dedup_key(j), (j.get("description") or "")[:6000] if kept else None, now))
+        for pid, prio in kept.items():
+            match_rows.append((pid, key, j["id"], prio, int(not first_run)))
+            if not first_run:
+                alerts.append((pid, j))
 
     if not dry:
         with DB_WRITE:
-            _save_company(key, jobs, rows, now, c)
+            _save_company(key, jobs, rows, match_rows, now, c)
     matched = sum(r[7] for r in rows)
     return alerts, dict(listed=len(jobs), new=len(new), matched=matched, details=detail_calls, first_run=first_run,
                         recovered=bool(seeded and seeded[1]))
 
 
-def _save_company(key, jobs, rows, now, c):
+def _save_company(key, jobs, rows, match_rows, now, c):
     """One short transaction per company. Always commits or rolls back, and always closes:
     a connection left mid-transaction holds the write lock and freezes every later scan."""
     con = connect()
     try:
         with con:  # commit on success, rollback on any error
-            _write_company(con, key, jobs, rows, now, c)
+            _write_company(con, key, jobs, rows, match_rows, now, c)
     finally:
         con.close()
 
 
-def _write_company(con, key, jobs, rows, now, c):
+def _write_company(con, key, jobs, rows, match_rows, now, c):
     con.executemany("""INSERT OR IGNORE INTO jobs (key, id, company, title, location, url, first_seen, matched, reason,
                        priority, min_years, alerted, posted, dedup, descr, last_seen) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""", rows)
+    con.executemany("INSERT OR IGNORE INTO matches (profile, key, id, priority, alerted) VALUES (?,?,?,?,?)", match_rows)
     # Closed-job detection: matched jobs still listed get last_seen; on feeds that return the whole
     # board, a matched job that's no longer listed has been taken down.
     listed = {j["id"] for j in jobs}
@@ -312,7 +335,9 @@ def _scan(dry=False):
         return not (c.get("every_minutes") and lo) or \
             (datetime.now() - datetime.fromisoformat(lo)).total_seconds() >= c["every_minutes"] * 60 - 120
     companies = [c for c in companies if due(c)]
-    seeded_any = recovered_any = False
+    # before this scan adds any matches, so a new profile's empty page is noticed
+    seeded_any = any([seed_profile(con, p) for p in PROFILES]) if not dry else False
+    recovered_any = False
     all_alerts, totals, failed = [], {"listed": 0, "new": 0, "matched": 0, "details": 0}, []
     with cf.ThreadPoolExecutor(int(ENV.get("THREADS", 16))) as ex:
         futs = {ex.submit(scan_company, c, DB, dry, max_years, max_age, float(ENV["SEED_DETAIL_DAYS"])): c for c in companies}
@@ -336,69 +361,109 @@ def _scan(dry=False):
             seeded_any = seeded_any or st["first_run"]
             recovered_any = recovered_any or st["recovered"]
 
-    # drop cross-feed duplicates: already matched earlier via another feed, or twice in this run
-    unique, keys = [], set()
-    for j in sorted(all_alerts, key=lambda j: j["source"] == "simplify"):  # prefer the company's own link
-        dk = dedup_key(j)
-        earlier = con.execute("SELECT 1 FROM jobs WHERE dedup=? AND matched=1 AND first_seen < ? LIMIT 1", (dk, run_start)).fetchone()
-        if dk in keys or earlier:
-            log(f"  dup skipped: {j['company']} | {j['title']}")
-            if not dry:
-                with DB_WRITE, con:
-                    con.execute("UPDATE jobs SET alerted=0, reason='duplicate' WHERE key=? AND id=?", (j["key"], j["id"]))
-            continue
-        keys.add(dk)
-        unique.append(j)
-    all_alerts = []
-    unclear_ok = now_local().strftime("%Y-%m-%d") >= ENV["UNCLEAR_ALERTS_FROM"]
-    for j in unique:
-        j["start"] = filters.start_verdict(j["title"], j.get("description"))
-        if j["start"] == "now" or (j["start"] == "" and not unclear_ok):
-            log(f"  no alert ({'starts before May 2027' if j['start'] else 'start date not stated'}): {j['company']} | {j['title']}")
-            continue
-        all_alerts.append(j)
-    all_alerts.sort(key=lambda j: (j.get("start") != "2027", not j.get("entry"), j["company"]))
     # a feed that failed and now works again must be saved, or the stored fail count only ever grows
     changed = recovered_any
-    if in_quiet_hours():  # overnight: only ⭐ jobs buzz; the rest wait for one morning message
-        held = [j for j in all_alerts if not j.get("entry") and j.get("start") != "2027"]
-        all_alerts = [j for j in all_alerts if j.get("entry") or j.get("start") == "2027"]
-        if held and not dry:
-            with DB_WRITE, con:
-                con.executemany("UPDATE jobs SET held=1 WHERE key=? AND id=?", [(j["key"], j["id"]) for j in held])
-            changed = True
-            log(f"  quiet hours: holding {len(held)} alerts")
-    elif not dry:
-        held = con.execute("SELECT company, title, url FROM jobs WHERE held=1 ORDER BY priority DESC").fetchall()
-        if held:
-            notify(f"Overnight: {len(held)} new jobs", "\n".join(f"• {t} — {c}" for c, t, u in held[:30])
-                   + ("" if len(held) <= 30 else f"\n…and {len(held) - 30} more on the web page"), priority=4, tags=["briefcase"])
-            with DB_WRITE, con:
-                con.execute("UPDATE jobs SET held=0 WHERE held=1")
-            changed = True
-    cap = int(ENV["MAX_ALERTS_PER_RUN"])
-    for j in all_alerts[:cap]:
-        log(f"  ALERT {'*' if j.get('entry') else ' '} {j['company']} | {j['title']} | {j['location'][:60]} | {j['url']}")
-        if not dry:
-            alert_job(j)
-    if len(all_alerts) > cap and not dry:
-        notify(f"+{len(all_alerts) - cap} more new jobs", "Run `python3 watcher.py recent` or wait for the digest.", priority=3)
+    alerted = 0
+    for p in PROFILES:
+        sent, ch = _alert_profile(con, p, [j for pid, j in all_alerts if pid == p.id], run_start, dry)
+        alerted, changed = alerted + sent, changed or ch
     if not dry:
         write_open_json(con)
     log(f"scan done in {time.time() - t0:.0f}s: {len(companies)} companies, {totals['listed']} listed, "
-        f"{totals['new']} new, {totals['matched']} matched, {len(all_alerts)} alerted, "
+        f"{totals['new']} new, {totals['matched']} matched, {alerted} alerted, "
         f"{totals['details']} detail fetches, {len(failed)} failed {failed if failed else ''}")
-    return {"alerted": len(all_alerts), "matched": totals["matched"], "seeded": seeded_any, "changed": changed}
+    return {"alerted": alerted, "matched": totals["matched"], "seeded": seeded_any, "changed": changed}
 
 
-def matches_since(con, hours):
-    """New matches you could actually take (not wanting a start before May 2027); 2027 starts first."""
-    rows = con.execute("""SELECT company, title, location, url, priority, min_years, first_seen, descr FROM jobs
-                          WHERE matched=1 AND closed=0 AND reason != 'duplicate' AND first_seen >= datetime('now','localtime', ?)
-                          ORDER BY priority DESC, first_seen DESC""", (f"-{hours} hours",)).fetchall()
+def _set_match(con, p, j, **cols):
+    sets = ", ".join(f"{k}=?" for k in cols)
+    with DB_WRITE, con:
+        con.execute(f"UPDATE matches SET {sets} WHERE profile=? AND key=? AND id=?", (*cols.values(), p.id, j["key"], j["id"]))
+
+
+def _alert_profile(con, p, new_matches, run_start, dry):
+    """One profile's new matches -> phone. Returns (alerts sent, whether held state changed)."""
+    tag = "" if p is ME else f"[{p.id}] "
+    # drop cross-feed duplicates: already matched earlier via another feed, or twice in this run
+    unique, keys = [], set()
+    for j in sorted(new_matches, key=lambda j: j["source"] == "simplify"):  # prefer the company's own link
+        dk = dedup_key(j)
+        earlier = con.execute("""SELECT 1 FROM matches m JOIN jobs j ON j.key=m.key AND j.id=m.id
+                                 WHERE m.profile=? AND j.dedup=? AND j.first_seen < ? LIMIT 1""", (p.id, dk, run_start)).fetchone()
+        if dk in keys or earlier:
+            log(f"  {tag}dup skipped: {j['company']} | {j['title']}")
+            if not dry:
+                _set_match(con, p, j, alerted=0, reason="duplicate")
+            continue
+        keys.add(dk)
+        unique.append(j)
+    alerts = []
+    unclear_ok = now_local().strftime("%Y-%m-%d") >= ENV["UNCLEAR_ALERTS_FROM"]
+    for j in unique:
+        j = dict(j, start=filters.start_verdict(j["title"], j.get("description")) if p.start_gate else "")
+        if p.start_gate and (j["start"] == "now" or (j["start"] == "" and not unclear_ok)):
+            log(f"  {tag}no alert ({'starts before May 2027' if j['start'] else 'start date not stated'}): {j['company']} | {j['title']}")
+            continue
+        if p.star_alerts_only and not j.get("entry"):
+            continue  # on the web page and in the digest, no buzz
+        alerts.append(j)
+    alerts.sort(key=lambda j: (j.get("start") != "2027", not j.get("entry"), j["company"]))
+    changed = False
+    if in_quiet_hours():  # overnight: only ⭐ jobs buzz; the rest wait for one morning message
+        held = [j for j in alerts if not j.get("entry") and j.get("start") != "2027"]
+        alerts = [j for j in alerts if j.get("entry") or j.get("start") == "2027"]
+        if held and not dry:
+            for j in held:
+                _set_match(con, p, j, held=1)
+            changed = True
+            log(f"  {tag}quiet hours: holding {len(held)} alerts")
+    elif not dry:
+        held = con.execute("""SELECT j.company, j.title FROM matches m JOIN jobs j ON j.key=m.key AND j.id=m.id
+                              WHERE m.profile=? AND m.held=1 ORDER BY m.priority DESC""", (p.id,)).fetchall()
+        if held:
+            notify(f"Overnight: {len(held)} new jobs", "\n".join(f"• {t} — {c}" for c, t in held[:30])
+                   + ("" if len(held) <= 30 else f"\n…and {len(held) - 30} more on the web page"), priority=4,
+                   tags=["briefcase"], profile=p)
+            with DB_WRITE, con:
+                con.execute("UPDATE matches SET held=0 WHERE profile=? AND held=1", (p.id,))
+            changed = True
+    cap = int(ENV["MAX_ALERTS_PER_RUN"])
+    for j in alerts[:cap]:
+        log(f"  {tag}ALERT {'*' if j.get('entry') else ' '} {j['company']} | {j['title']} | {j['location'][:60]} | {j['url']}")
+        if not dry:
+            alert_job(j, p)
+    if len(alerts) > cap and not dry:
+        notify(f"+{len(alerts) - cap} more new jobs", "They're on your web page and in the next digest.", priority=3, profile=p)
+    return len(alerts), changed
+
+
+def seed_profile(con, p, days=45):
+    """A newly added profile starts with an empty page (every posting was already 'seen' before it
+    existed), so fill it once from postings of the last N days. Title + location only: older postings
+    have no stored description, so the years-of-experience check can't run on them. Never alerts."""
+    if p is ME or con.execute("SELECT 1 FROM matches WHERE profile=? LIMIT 1", (p.id,)).fetchone():
+        return False
+    rows = con.execute("""SELECT key, id, title, location FROM jobs WHERE closed=0
+                          AND COALESCE(posted, substr(first_seen,1,10)) >= date('now','localtime', ?)""", (f"-{days} days",)).fetchall()
+    picked = [(p.id, k, i, 2 if filters.ENTRY.search(t) else 1, 0) for k, i, t, loc in rows
+              if p.title_verdict(t)[0] and filters.is_canada({"location": loc, "country": "CA" if k.startswith("jobbank") else None})]
+    with DB_WRITE, con:
+        con.executemany("INSERT OR IGNORE INTO matches (profile, key, id, priority, alerted) VALUES (?,?,?,?,?)", picked)
+        con.executemany("UPDATE jobs SET matched=1 WHERE key=? AND id=?", [(k, i) for _, k, i, _, _ in picked])
+    log(f"  [{p.id}] seeded {len(picked)} matches from the last {days} days")
+    return True
+
+
+def matches_since(con, hours, p=ME):
+    """New matches the profile could actually take; for the start-gated profile, 2027 starts first and
+    jobs wanting a start before May 2027 are left out."""
+    rows = con.execute("""SELECT j.company, j.title, j.location, j.url, m.priority, j.min_years, j.first_seen, j.descr
+                          FROM matches m JOIN jobs j ON j.key=m.key AND j.id=m.id
+                          WHERE m.profile=? AND j.closed=0 AND m.reason != 'duplicate' AND j.first_seen >= datetime('now','localtime', ?)
+                          ORDER BY m.priority DESC, j.first_seen DESC""", (p.id, f"-{hours} hours")).fetchall()
     out = []
     for r in rows:
-        st = filters.start_verdict(r[1], r[7])
+        st = filters.start_verdict(r[1], r[7]) if p.start_gate else ""
         if st != "now":
             out.append(r[:4] + ((2 if st == "2027" else r[4]),) + r[5:7])
     return sorted(out, key=lambda r: -r[4])
@@ -432,9 +497,9 @@ def check_closed_workday(con, limit=150):
 FOLLOW_UP_DAYS = 14
 
 
-def follow_ups():
+def follow_ups(p=ME):
     """Applications with no update for 2 weeks, nudged at most once per stage."""
-    st, due, today = load_status(), [], now_local().date()
+    st, due, today = load_status(p), [], now_local().date()
     for k, v in st.items():
         stage = v.get("stage") or ("applied" if v.get("state") == "applied" else None)
         if stage not in ("applied", "oa", "interview"):
@@ -448,59 +513,68 @@ def follow_ups():
             due.append((idle, stage, v))
             v["nudged"] = f"{stage}:{since}"
     if due:
-        save_status(st)
+        save_status(st, p)
     return sorted(due, key=lambda x: -x[0])
 
 
 def cmd_digest(hours=12):
     con = db()
-    rows = [r for r in matches_since(con, hours)]
-    broken = con.execute("SELECT key FROM sources WHERE fails >= 6").fetchall()
     part = "Morning" if now_local().hour < 12 else "Evening"
-    nudges = follow_ups() if part == "Morning" else []
     if part == "Morning":
         check_closed_workday(con)
+    for p in PROFILES:
+        _digest(con, p, hours, part)
+
+
+def _digest(con, p, hours, part):
+    rows = matches_since(con, hours, p)
+    nudges = follow_ups(p) if part == "Morning" else []
     if not rows:
-        msg = f"No new entry-level tech jobs in Canada in the last {hours}h."
+        msg = f"No new {p.label.lower()} in Canada in the last {hours}h."
     else:
         msg = "\n".join(f"{'⭐' if r[4] == 2 else '•'} {r[1]} — {r[0]} ({r[2][:40]})" for r in rows[:40])
         if len(rows) > 40:
-            msg += f"\n…and {len(rows) - 40} more (python3 watcher.py recent)"
+            msg += f"\n…and {len(rows) - 40} more on your web page"
     if nudges:
         label = {"applied": "no reply", "oa": "OA, no news", "interview": "interviewed, no news"}
         msg += "\n\n📌 Follow up (" + str(len(nudges)) + "):\n" + "\n".join(
             f"• {v.get('title', '?')} — {v.get('company', '?')} ({label[stage]} for {idle}d)" for idle, stage, v in nudges[:10])
-    if broken:
-        msg += f"\n\n⚠ feeds failing: {', '.join(b[0] for b in broken)}"
-    notify(f"{part} job digest: {len(rows)} new", msg, priority=3, tags=["newspaper"])
-    log(f"digest sent: {len(rows)} matches in last {hours}h")
+    if p is ME:  # feed health is the owner's problem only
+        broken = con.execute("SELECT key FROM sources WHERE fails >= 6").fetchall()
+        if broken:
+            msg += f"\n\n⚠ feeds failing: {', '.join(b[0] for b in broken)}"
+    notify(f"{part} job digest: {len(rows)} new", msg, priority=3, tags=["newspaper"], profile=p)
+    log(f"digest sent to {p.id}: {len(rows)} matches in last {hours}h")
 
 
-def open_matches(con, days=45):
-    """Matched jobs posted in the last N days (or first seen then, if the feed has no date), one per job.
+def open_matches(con, days=45, profile=ME):
+    """A profile's matched jobs posted in the last N days (or first seen then, if the feed has no date), one per job.
     Where a job came through two feeds, the company's own board wins over the GitHub list."""
-    rows = con.execute("""SELECT company, title, location, url, priority, min_years, COALESCE(posted, substr(first_seen,1,10)) p,
-                                 dedup, key, id, first_seen, descr
-                          FROM jobs WHERE matched=1 AND closed=0 AND reason != 'duplicate' AND p >= date('now','localtime', ?)
-                          ORDER BY p DESC, priority DESC, key LIKE 'simplify:%'""", (f"-{int(float(days))} days",)).fetchall()
+    rows = con.execute("""SELECT j.company, j.title, j.location, j.url, m.priority, j.min_years, COALESCE(j.posted, substr(j.first_seen,1,10)) p,
+                                 j.dedup, j.key, j.id, j.first_seen, j.descr
+                          FROM matches m JOIN jobs j ON j.key=m.key AND j.id=m.id
+                          WHERE m.profile=? AND j.closed=0 AND m.reason != 'duplicate' AND p >= date('now','localtime', ?)
+                          ORDER BY p DESC, m.priority DESC, j.key LIKE 'simplify:%'""", (profile.id, f"-{int(float(days))} days")).fetchall()
     seen = set()
     return [r for r in rows if not (r[7] in seen or seen.add(r[7]))]
 
 
-def open_jobs_payload(con):
+def open_jobs_payload(con, profile=ME):
     """Everything the web UI shows, one dict per open match."""
-    rows = open_matches(con)
+    rows = open_matches(con, profile=profile)
     has_date = {r[0]: r[1] for r in con.execute("SELECT key, MAX(posted IS NOT NULL) FROM jobs GROUP BY key")}
     setup = dict(con.execute("SELECT key, MIN(first_seen) FROM jobs GROUP BY key"))
     out = [{"k": f"{r[8]}|{r[9]}", "company": r[0], "title": r[1], "location": r[2][:120], "url": r[3],
             **dict(zip(("fit", "skills", "flags"), fit.score(r[1], r[11], r[2], r[4] == 2, r[5]))),
-            "start": filters.start_verdict(r[1], r[11]),
+            "start": filters.start_verdict(r[1], r[11]) if profile.start_gate else "",
             "star": r[4] == 2, "years": r[5], "first_seen": r[10], "source": r[8].split(":")[0],
             # feeds without dates: "posted" is unknown, and jobs found on the very first scan are of unknown age
             "posted": r[6] if has_date.get(r[8]) else None,
             "found_at_setup": not has_date.get(r[8]) and r[10][:13] == (setup.get(r[8]) or "")[:13]} for r in rows]
-    for j in out:  # a confirmed 2027 start is worth more than any skill keyword
-        if j["start"] == "2027":
+    for j in out:
+        if not profile.fit:  # the resume score is the owner's resume; flags (French, clearance) still apply
+            j["fit"], j["skills"] = None, []
+        elif j["start"] == "2027":  # a confirmed 2027 start is worth more than any skill keyword
             j["fit"] = min(100, j["fit"] + 10)
     # newest first; jobs of unknown age (dateless feed, found at setup) go last
     out.sort(key=lambda j: (j["posted"] or ("" if j["found_at_setup"] else j["first_seen"][:10])), reverse=True)

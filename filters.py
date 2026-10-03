@@ -160,3 +160,49 @@ def start_verdict(title, description):
     if START_2027.search(t) or START_2027.search(d):
         return "2027"
     return ""
+
+
+# ---------------------------------------------------------------- business roles (the second profile)
+# Any business field: finance, accounting, marketing, sales, consulting, HR, supply chain, analyst roles.
+BUSINESS = re.compile(r"""(
+    financ|\bfp&a\b|accounting|accountant|accounts\s+(payable|receivable)|bookkeep|\baudit|\btax\b|taxation|treasury|payroll|billing\s+(analyst|specialist)|
+    credit\s+(analyst|adjudicat|officer|risk)|underwrit|actuar|investment|equity\s+research|capital\s+markets|banking|banker|wealth|
+    portfolio\s+(analyst|associate|assistant)|risk\s+(analyst|associate|specialist|consultant)|compliance|anti[\s-]money|\baml\b|\bkyc\b|fraud\s+(analyst|investigat|strateg)|valuation|
+    marketing|\bbrand\s+(manager|coordinator|specialist|associate|strateg)|social\s+media|communications?\s+(specialist|coordinator|advisor|associate|officer|analyst)|
+    content\s+(writer|creator|specialist|coordinator|strateg|marketing)|copywrit|public\s+relations|\bseo\b|digital\s+media|e-?commerce|advertis|media\s+(planner|buyer)|
+    sales\s+(development|representative|executive|coordinator|analyst|operations|support)|business\s+development|account\s+(executive|coordinator|representative|associate|specialist|manager)|inside\s+sales|
+    customer\s+success|client\s+(success|relationship|service\s+(associate|specialist)|advisor|associate|experience\s+(specialist|analyst))|relationship\s+(banker|associate)|
+    consultant|consulting|advisory|strateg|
+    human\s+resources|\bhr\b|people\s+(operations|partner|coordinator|advisor)|talent\s+acquisition|recruit|benefits|compensation|learning\s+and\s+development|
+    supply\s+chain|procurement|purchas|\bbuyer|sourcing|logistic|inventory\s+(analyst|planner|control|specialist|coordinator)|demand\s+plan|supply\s+plan|\bplanner\b|
+    operations\s+(analyst|associate|coordinator|specialist|administrator)|business\s+operations|
+    business\s+analy|data\s+analy|analytics|business\s+intelligence|reporting\s+analyst|pricing|insights|research\s+analyst|market\s+research|\banalyst\b|
+    product\s+(manager|owner|analyst|marketing|specialist)|project\s+(coordinator|administrator|analyst|associate|assistant)|program\s+(coordinator|associate|assistant)|
+    office\s+(administrator|coordinator)|executive\s+assistant|administrative\s+(assistant|coordinator)|
+    management\s+trainee|leadership\s+(development|program)|rotational|graduate\s+program|early\s+talent|new\s+grad|
+    analyste|comptab|financier|financi[eè]re|ressources\s+humaines|approvisionnement|acheteu|\bachats?\b|représentant(e)?\s+des\s+ventes|
+    conseill[eè]re?\s+(en\s+)?(financ|placement|marketing|ressources|communication|vente)|chaîne\s+d.approvisionnement
+)""", re.I | re.X)
+
+# business words inside jobs that aren't office careers for a business grad (store, warehouse, tech, trades)
+NOT_BUSINESS = re.compile(r"""(
+    software|logiciel|developer|développeu|engineer|ingénieur|programm|devops|\bcloud\b|cyber|network|firmware|embedded|
+    security\s+(analyst|engineer|operations)|\bit\b|technical|technique|technician|technicien|machine\s+learning|data\s+scien|data\s+engineer|
+    nurse|infirmi|physician|pharmac|therap|dental|medical|clinical|caregiver|environmental|environnement|quality\s+analyst|
+    driver|warehouse|labou?rer|cashier|crew\s+member|barista|cook\b|chef\b|cleaner|janitor|mechanic|welder|electrician|plumber|carpenter|dispatcher|
+    security\s+guard|retail|\bstore\b|in[\s-]store|sales\s+associate|merchandiser\b|stock|teller|call\s+cent|wireless|mobile\s+sales|ambassador|sampling|kiosk|
+    teacher|tutor|professor|lecturer|postdoc|laboratory|scientist|lawyer|counsel|attorney|paralegal|architect|designer|
+    \bagent\b|part[\s-]time|temps\s+partiel|seasonal|saisonnier|overnight|weekend|\(night\)|talent\s+(community|pool|network)|general\s+application|expression\s+of\s+interest|
+    supervisor|superviseur
+)""", re.I | re.X)
+
+
+def business_title_verdict(title):
+    """Title-only first pass for the business profile. Returns (keep, reason)."""
+    if STUDENT.search(title):
+        return False, "student/intern"
+    if TOO_SENIOR.search(title) and not re.search(r"new\s+grad|graduate|entry|associate\s+(product|brand|marketing)\s+manager", title, re.I):
+        return False, "senior"
+    if NOT_BUSINESS.search(title) or not BUSINESS.search(title):
+        return False, "not business"
+    return True, ""

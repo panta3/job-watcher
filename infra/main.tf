@@ -24,6 +24,18 @@ variable "ui_password" {
   sensitive   = true
 }
 
+variable "biz_ntfy_topic" {
+  description = "the business-profile person's ntfy topic; update.sh generates one"
+  type        = string
+  sensitive   = true
+}
+
+variable "biz_ui_password" {
+  description = "the business-profile person's web page password; update.sh generates one"
+  type        = string
+  sensitive   = true
+}
+
 variable "budget_email" {
   description = "optional: email for an AWS budget alert if the bill ever goes above $1/month"
   type        = string
@@ -79,7 +91,7 @@ resource "aws_iam_role_policy" "lambda" {
     Version = "2012-10-17"
     Statement = [
       { Effect = "Allow", Action = ["logs:CreateLogStream", "logs:PutLogEvents"], Resource = "${aws_cloudwatch_log_group.lambda.arn}:*" },
-      { Effect = "Allow", Action = ["s3:GetObject", "s3:PutObject"], Resource = ["${aws_s3_bucket.state.arn}/jobs.db", "${aws_s3_bucket.state.arn}/status.json"] },
+      { Effect = "Allow", Action = ["s3:GetObject", "s3:PutObject"], Resource = ["${aws_s3_bucket.state.arn}/jobs.db", "${aws_s3_bucket.state.arn}/status.json", "${aws_s3_bucket.state.arn}/status-biz.json"] },
       { Effect = "Allow", Action = ["s3:ListBucket"], Resource = aws_s3_bucket.state.arn },
     ]
   })
@@ -104,6 +116,9 @@ resource "aws_lambda_function" "watcher" {
       JOBS_BUCKET      = aws_s3_bucket.state.id
       JOBS_NTFY_TOPIC  = var.ntfy_topic
       JOBS_UI_PASSWORD = var.ui_password
+      # second profile (business roles), see profiles.py
+      JOBS_NTFY_TOPIC_BIZ  = var.biz_ntfy_topic
+      JOBS_UI_PASSWORD_BIZ = var.biz_ui_password
     }
   }
   depends_on = [aws_cloudwatch_log_group.lambda]
