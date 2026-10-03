@@ -152,7 +152,8 @@ main{padding:12px 16px 60px}
 </head>
 <body>
 <header><div class="wrap">
-  <h1 id="h1">Job Watcher</h1>
+  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><h1 id="h1">Job Watcher</h1>
+  <a href="logout" id="logout" hidden style="font-size:13px;color:var(--accent);text-decoration:none;white-space:nowrap">Sign out / switch</a></div>
   <div class="sub" id="sub"></div>
   <div class="controls">
     <input type="search" id="q" placeholder="Search title, company, city, skill…">
@@ -168,7 +169,9 @@ main{padding:12px 16px 60px}
 const DATA = /*DATA*/null;
 const $id = id => document.getElementById(id);
 const status = DATA.status, P = DATA.profile;
-document.title = "Job Watcher · " + P.label; $id("h1").textContent = "Job Watcher · " + P.label;
+document.title = "Job Watcher · " + P.label;
+if(location.protocol==="https:") $id("logout").hidden = false;  /* only the AWS page has sign-in */
+$id("h1").textContent = "Job Watcher · " + P.label;
 if(!P.start_gate) $id("start").hidden = true;
 if(!P.fit){ $id("sort").querySelector('[value="fit"]').remove(); }
 const STAGES = {applied:"Applied", oa:"Online assessment", interview:"Interviewing", offer:"Offer 🎉", rejected:"Rejected", ghosted:"No response"};

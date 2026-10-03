@@ -121,6 +121,9 @@ def web(event):
     if event.get("isBase64Encoded"):
         body = base64.b64decode(body).decode()
     path = event.get("rawPath") or "/"
+    if path == "/logout":  # back to the password box, e.g. to open the other person's page
+        return {"statusCode": 303, "headers": {"Location": "/", "Cache-Control": "no-store"},
+                "cookies": ["jw=; Max-Age=0; Path=/; HttpOnly; Secure; SameSite=Lax"]}
     if http["method"] == "POST" and path == "/login":
         given = (parse_qs(body).get("p") or [""])[0].encode()
         for session, pid in SESSIONS.items():
